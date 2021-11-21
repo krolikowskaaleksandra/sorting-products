@@ -1,19 +1,63 @@
-let products = ["blouse", "top", "dress", "sweater", "shirt", "skirt"];
+const products = [{
+        name: "blouse",
+    },
+    {
+        name: "top",
+    },
+    {
+        name: "dress",
+    },
+    {
+        name: "sweater",
+    },
+    {
+        name: "shirt",
+    },
+    {
+        name: "skirt",
+    },
 
-let productsList = document.getElementById("productsList");
+];
+const productsList = document.getElementById("productsList");
 
-products.forEach((item) => {
+products.forEach(({
+    name
+}) => {
     let li = document.createElement("li");
-    li.innerText = item;
+    li.innerText = name;
     productsList.appendChild(li);
 })
 
-let AZ = document.getElementById('A-Z');
-AZ.onclick = function () {
-    alert("ola");
-};
+// // products.forEach((item) => {
+// //     let li = document.createElement("li");
+// //     li.innerText = item.name;
+// //     productsList.appendChild(li);
+// //     products.sort();
+// // })
 
-let ZA = document.getElementById('Z-A');
-ZA.onclick = function () {
-    alert("adi");
-};
+
+function sortProductsAZ() {
+    products.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    productsList.innerText = "";
+    products.forEach(({
+        name
+    }) => {
+        let li = document.createElement("li");
+        li.innerText = name;
+        productsList.appendChild(li);
+    })
+
+}
+
+function sortProductsZA() {
+    products.sort((b, a) => (b.name > a.name) ? -1 : 1)
+    productsList.innerText = "";
+    products.forEach(({
+        name
+    }) => {
+        let li = document.createElement("li");
+        li.innerText = name;
+        productsList.appendChild(li);
+    })
+
+}
