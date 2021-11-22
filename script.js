@@ -48,7 +48,6 @@ products.forEach(({
 // //     products.sort();
 // // })
 
-
 function sortProductsAZ() {
     products.sort((a, b) => (a.name > b.name) ? 1 : -1)
     productsList.innerText = "";
@@ -61,9 +60,8 @@ function sortProductsAZ() {
         productsList.appendChild(li);
 
     })
-
-
 }
+
 
 function sortProductsZA() {
     products.sort((b, a) => (b.name > a.name) ? -1 : 1)
@@ -76,11 +74,11 @@ function sortProductsZA() {
         li.innerText = name + " " + price;
         productsList.appendChild(li);
     })
-
-
 }
 
-function sortProductslow() {
+
+
+function sortProductsLow() {
     products.sort((a, b) => (a.price > b.price) ? 1 : -1)
     productsList.innerText = "";
     products.forEach(({
@@ -92,11 +90,9 @@ function sortProductslow() {
         productsList.appendChild(li);
 
     })
-
-
 }
 
-function sortProductshigh() {
+function sortProductsHigh() {
     products.sort((b, a) => (b.price > a.price) ? -1 : 1)
     productsList.innerText = "";
     products.forEach(({
@@ -108,4 +104,20 @@ function sortProductshigh() {
         productsList.appendChild(li);
 
     })
+}
+
+function getSelectedValue() {
+    const selectedValue = document.getElementById("selectOption").value;
+    if (selectedValue === "az") {
+        return sortProductsAZ();
+    }
+    if (selectedValue === "za") {
+        return sortProductsZA();
+    }
+    if (selectedValue === "low") {
+        return sortProductsLow();
+    }
+    if (selectedValue === "high") {
+        return sortProductsHigh();
+    }
 }

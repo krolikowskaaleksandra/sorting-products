@@ -7,10 +7,18 @@
 
 <body>
 
-    <button id="az" onclick="sortProductsAZ()">A-Z</button>
+    <select id="selectOption" onchange="getSelectedValue()">
+        <option value="">-- Choose an option--</option>
+        <option id="az" value="az">A-Z</option>
+        <option id="za" value="za">Z-A</option>
+        <option id="low" value="low">Low</option>
+        <option id="high" value="high">High</option>
+    </select>
+
+    <!-- <button id="az" onclick="sortProductsAZ()">A-Z</button>
     <button id="za" onclick="sortProductsZA()">Z-A</button>
     <button id="low" onclick="sortProductslow()">Low</button>
-    <button id="high" onclick="sortProductshigh()">High</button>
+    <button id="high" onclick="sortProductshigh()">High</button> -->
 
 
     <ul id="productsList"></ul>
