@@ -1,30 +1,37 @@
 const products = [{
         name: "blouse",
         price: 100,
+        image: "images/blouse.png",
+
     },
     {
         name: "top",
         price: 50,
+        image: "images/top.png",
 
     },
     {
         name: "dress",
         price: 79,
+        image: "images/dress.png",
 
     },
     {
         name: "sweater",
         price: 80,
+        image: "images/sweater.png",
 
     },
     {
         name: "shirt",
         price: 49,
+        image: "images/shirt.png",
 
     },
     {
         name: "skirt",
         price: 120,
+        image: "images/skirt.png",
 
     },
 
@@ -33,12 +40,13 @@ const productsList = document.getElementById("productsList");
 
 products.forEach(({
     name,
-    price
+    price,
 }) => {
     let li = document.createElement("li");
-    li.innerText = name + " " + price;
+    li.innerHTML = name + " " + price;
     productsList.appendChild(li);
 })
+
 
 
 // // products.forEach((item) => {
@@ -53,7 +61,8 @@ function sortProductsAZ() {
     productsList.innerText = "";
     products.forEach(({
         name,
-        price
+        price,
+
     }) => {
         let li = document.createElement("li");
         li.innerText = name + " " + price;
@@ -68,7 +77,7 @@ function sortProductsZA() {
     productsList.innerText = "";
     products.forEach(({
         name,
-        price
+        price,
     }) => {
         let li = document.createElement("li");
         li.innerText = name + " " + price;
@@ -83,7 +92,7 @@ function sortProductsLow() {
     productsList.innerText = "";
     products.forEach(({
         name,
-        price
+        price,
     }) => {
         let li = document.createElement("li");
         li.innerText = name + " " + price;
@@ -97,7 +106,7 @@ function sortProductsHigh() {
     productsList.innerText = "";
     products.forEach(({
         name,
-        price
+        price,
     }) => {
         let li = document.createElement("li");
         li.innerText = name + " " + price;
