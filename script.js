@@ -37,16 +37,28 @@ const products = [{
 
 ];
 const productsList = document.getElementById("productsList");
+// const productsImages = document.getElementById("images");
 
 products.forEach(({
     name,
     price,
+    image
 }) => {
     let li = document.createElement("li");
-    li.innerHTML = name + " " + price;
+    let div = document.createElement("div");
+    let img = document.createElement("img");
+    let div2 = document.createElement("div");
+    img.src = image;
+    div2.innerText = name + " " + price + " " + "PLN";
     productsList.appendChild(li);
+    li.appendChild(div);
+    div.appendChild(img);
+    div.appendChild(div2);
+    li.classList.add("li")
+    div.classList.add("div")
+    img.classList.add("img")
+    div2.classList.add("div2")
 })
-
 
 
 // // products.forEach((item) => {
@@ -62,12 +74,23 @@ function sortProductsAZ() {
     products.forEach(({
         name,
         price,
+        image
 
     }) => {
         let li = document.createElement("li");
-        li.innerText = name + " " + price;
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let div2 = document.createElement("div");
+        img.src = image;
+        div2.innerText = name + " " + price + " " + "PLN";
         productsList.appendChild(li);
-
+        li.appendChild(div);
+        div.appendChild(img);
+        div.appendChild(div2);
+        li.classList.add("li")
+        div.classList.add("div")
+        img.classList.add("img")
+        div2.classList.add("div2")
     })
 }
 
@@ -78,10 +101,22 @@ function sortProductsZA() {
     products.forEach(({
         name,
         price,
+        image
     }) => {
         let li = document.createElement("li");
-        li.innerText = name + " " + price;
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let div2 = document.createElement("div");
+        img.src = image;
+        div2.innerText = name + " " + price + " " + "PLN";
         productsList.appendChild(li);
+        li.appendChild(div);
+        div.appendChild(img);
+        div.appendChild(div2);
+        li.classList.add("li")
+        div.classList.add("div")
+        img.classList.add("img")
+        div2.classList.add("div2")
     })
 }
 
@@ -93,10 +128,22 @@ function sortProductsLow() {
     products.forEach(({
         name,
         price,
+        image
     }) => {
         let li = document.createElement("li");
-        li.innerText = name + " " + price;
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let div2 = document.createElement("div");
+        img.src = image;
+        div2.innerText = name + " " + price + " " + "PLN";
         productsList.appendChild(li);
+        li.appendChild(div);
+        div.appendChild(img);
+        div.appendChild(div2);
+        li.classList.add("li")
+        div.classList.add("div")
+        img.classList.add("img")
+        div2.classList.add("div2")
 
     })
 }
@@ -107,10 +154,22 @@ function sortProductsHigh() {
     products.forEach(({
         name,
         price,
+        image
     }) => {
         let li = document.createElement("li");
-        li.innerText = name + " " + price;
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let div2 = document.createElement("div");
+        img.src = image;
+        div2.innerText = name + " " + price + " " + "PLN";
         productsList.appendChild(li);
+        li.appendChild(div);
+        div.appendChild(img);
+        div.appendChild(div2);
+        li.classList.add("li")
+        div.classList.add("div")
+        img.classList.add("img")
+        div2.classList.add("div2")
 
     })
 }
