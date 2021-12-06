@@ -1,45 +1,76 @@
-const products = [{
+const womenProducts = [{
         name: "blouse",
-        price: 100,
+        price: 1000,
         image: "images/blouse.png",
-
     },
     {
         name: "top",
         price: 50,
         image: "images/top.png",
-
     },
     {
         name: "dress",
         price: 79,
         image: "images/dress.png",
-
     },
     {
         name: "sweater",
         price: 80,
         image: "images/sweater.png",
-
     },
     {
-        name: "shirt",
+        name: "T-shirt",
         price: 49,
-        image: "images/shirt.png",
-
+        image: "images/T-shirt.png",
     },
     {
         name: "skirt",
         price: 120,
         image: "images/skirt.png",
-
     },
-
 ];
-const productsList = document.getElementById("productsList");
-// const productsImages = document.getElementById("images");
 
-products.forEach(({
+const menProducts = [{
+        name: "shirt",
+        price: 49,
+        image: "images/shirt.png",
+    },
+    {
+        name: "hoodie",
+        price: 160,
+        image: "images/hoodie.png",
+    },
+    {
+        name: "T-shirt",
+        price: 69,
+        image: "images/T-shirt2.png",
+    },
+    {
+        name: "trousers",
+        price: 120,
+        image: "images/trousers.png",
+    },
+    {
+        name: "jacket",
+        price: 50,
+        image: "images/jacket.png",
+    },
+    {
+        name: "jeans",
+        price: 189,
+        image: "images/jeans.png",
+    },
+];
+
+
+const productsList = document.getElementById("productsList");
+let zloty = new Intl.NumberFormat("en-PL", {
+    style: "currency",
+    currency: "PLN",
+});
+
+
+womenProducts.forEach(({
     name,
     price,
     image
@@ -49,7 +80,28 @@ products.forEach(({
     let img = document.createElement("img");
     let div2 = document.createElement("div");
     img.src = image;
-    div2.innerText = name + " " + price + " " + "PLN";
+    div2.innerText = name + " " + zloty.format(price);
+    productsList.appendChild(li);
+    li.appendChild(div);
+    div.appendChild(img);
+    div.appendChild(div2);
+    li.classList.add("li")
+    div.classList.add("div")
+    img.classList.add("img")
+    div2.classList.add("div2")
+})
+
+menProducts.forEach(({
+    name,
+    price,
+    image
+}) => {
+    let li = document.createElement("li");
+    let div = document.createElement("div");
+    let img = document.createElement("img");
+    let div2 = document.createElement("div");
+    img.src = image;
+    div2.innerText = name + " " + zloty.format(price);
     productsList.appendChild(li);
     li.appendChild(div);
     div.appendChild(img);
@@ -61,6 +113,7 @@ products.forEach(({
 })
 
 
+
 // // products.forEach((item) => {
 // //     let li = document.createElement("li");
 // //     li.innerText = item.name;
@@ -69,9 +122,9 @@ products.forEach(({
 // // })
 
 function sortProductsAZ() {
-    products.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    womenProducts.sort((a, b) => (a.name > b.name) ? 1 : -1)
     productsList.innerText = "";
-    products.forEach(({
+    womenProducts.forEach(({
         name,
         price,
         image
@@ -82,7 +135,7 @@ function sortProductsAZ() {
         let img = document.createElement("img");
         let div2 = document.createElement("div");
         img.src = image;
-        div2.innerText = name + " " + price + " " + "PLN";
+        div2.innerText = name + " " + zloty.format(price);
         productsList.appendChild(li);
         li.appendChild(div);
         div.appendChild(img);
@@ -96,9 +149,9 @@ function sortProductsAZ() {
 
 
 function sortProductsZA() {
-    products.sort((b, a) => (b.name > a.name) ? -1 : 1)
+    womenProducts.sort((b, a) => (b.name > a.name) ? -1 : 1)
     productsList.innerText = "";
-    products.forEach(({
+    womenProducts.forEach(({
         name,
         price,
         image
@@ -108,7 +161,7 @@ function sortProductsZA() {
         let img = document.createElement("img");
         let div2 = document.createElement("div");
         img.src = image;
-        div2.innerText = name + " " + price + " " + "PLN";
+        div2.innerText = name + " " + zloty.format(price);
         productsList.appendChild(li);
         li.appendChild(div);
         div.appendChild(img);
@@ -123,9 +176,9 @@ function sortProductsZA() {
 
 
 function sortProductsLow() {
-    products.sort((a, b) => (a.price > b.price) ? 1 : -1)
+    womenProducts.sort((a, b) => (a.price > b.price) ? 1 : -1)
     productsList.innerText = "";
-    products.forEach(({
+    womenProducts.forEach(({
         name,
         price,
         image
@@ -135,7 +188,7 @@ function sortProductsLow() {
         let img = document.createElement("img");
         let div2 = document.createElement("div");
         img.src = image;
-        div2.innerText = name + " " + price + " " + "PLN";
+        div2.innerText = name + " " + zloty.format(price);
         productsList.appendChild(li);
         li.appendChild(div);
         div.appendChild(img);
@@ -149,9 +202,9 @@ function sortProductsLow() {
 }
 
 function sortProductsHigh() {
-    products.sort((b, a) => (b.price > a.price) ? -1 : 1)
+    womenProducts.sort((b, a) => (b.price > a.price) ? -1 : 1)
     productsList.innerText = "";
-    products.forEach(({
+    womenProducts.forEach(({
         name,
         price,
         image
@@ -161,7 +214,7 @@ function sortProductsHigh() {
         let img = document.createElement("img");
         let div2 = document.createElement("div");
         img.src = image;
-        div2.innerText = name + " " + price + " " + "PLN";
+        div2.innerText = name + " " + zloty.format(price);
         productsList.appendChild(li);
         li.appendChild(div);
         div.appendChild(img);
