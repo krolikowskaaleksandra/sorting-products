@@ -106,6 +106,64 @@
             div2.classList.add("div2")
         })
 
+        function displayWomenCategory() {
+            const findWomenProducts = (product) => {
+                return product.category === "woman";
+            }
+            const womenProducts = products.filter(findWomenProducts);
+            productsList.innerText = "";
+            womenProducts.forEach(({
+                name,
+                price,
+                image,
+            }) => {
+                let li = document.createElement("li");
+                let div = document.createElement("div");
+                let img = document.createElement("img");
+                let div2 = document.createElement("div");
+                img.src = image;
+                div2.innerText = name + " " + zloty.format(price);
+                productsList.appendChild(li);
+                li.appendChild(div);
+                div.appendChild(img);
+                div.appendChild(div2);
+                li.classList.add("li")
+                div.classList.add("div")
+                img.classList.add("img")
+                div2.classList.add("div2")
+            })
+
+        }
+
+        function displayMenCategory() {
+            const findMenProducts = (product) => {
+                return product.category === "man";
+            }
+            const menProducts = products.filter(findMenProducts);
+            productsList.innerText = "";
+            menProducts.forEach(({
+                name,
+                price,
+                image,
+            }) => {
+                let li = document.createElement("li");
+                let div = document.createElement("div");
+                let img = document.createElement("img");
+                let div2 = document.createElement("div");
+                img.src = image;
+                div2.innerText = name + " " + zloty.format(price);
+                productsList.appendChild(li);
+                li.appendChild(div);
+                div.appendChild(img);
+                div.appendChild(div2);
+                li.classList.add("li")
+                div.classList.add("div")
+                img.classList.add("img")
+                div2.classList.add("div2")
+            })
+
+        }
+
 
 
         function sortProductsAZ() {
