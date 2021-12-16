@@ -72,39 +72,64 @@
             },
         ]
 
-
-
         const productsList = document.getElementById("productsList");
 
-
-
-        let zloty = new Intl.NumberFormat("en-PL", {
+        const zloty = new Intl.NumberFormat("en-PL", {
             style: "currency",
             currency: "PLN",
         });
 
 
+        function displayProducts() {
+            products.forEach(({
+                name,
+                price,
+                image,
+            }) => {
+                let li = document.createElement("li");
+                let div = document.createElement("div");
+                let img = document.createElement("img");
+                let div2 = document.createElement("div");
+                img.src = image;
+                div2.innerText = name + " " + zloty.format(price);
+                productsList.appendChild(li);
+                li.appendChild(div);
+                div.appendChild(img);
+                div.appendChild(div2);
+                li.classList.add("li")
+                div.classList.add("div")
+                img.classList.add("img")
+                div2.classList.add("div2")
+            })
+        }
+        displayProducts();
 
-        products.forEach(({
-            name,
-            price,
-            image,
-        }) => {
-            let li = document.createElement("li");
-            let div = document.createElement("div");
-            let img = document.createElement("img");
-            let div2 = document.createElement("div");
-            img.src = image;
-            div2.innerText = name + " " + zloty.format(price);
-            productsList.appendChild(li);
-            li.appendChild(div);
-            div.appendChild(img);
-            div.appendChild(div2);
-            li.classList.add("li")
-            div.classList.add("div")
-            img.classList.add("img")
-            div2.classList.add("div2")
-        })
+
+
+        function sortProducts() {
+            const selectedValue = document.getElementById("selectOption").value;
+            if (selectedValue === "az") {
+                products.sort((a, b) => (a.name > b.name) ? 1 : -1)
+                productsList.innerText = "";
+                displayProducts();
+
+            }
+            if (selectedValue === "za") {
+                products.sort((a, b) => (a.name > b.name) ? -1 : 1)
+                productsList.innerText = "";
+                displayProducts();
+            }
+            if (selectedValue === "low") {
+                products.sort((a, b) => (a.price > b.price) ? 1 : -1)
+                productsList.innerText = "";
+                displayProducts();
+            }
+            if (selectedValue === "high") {
+                products.sort((a, b) => (a.price > b.price) ? -1 : 1)
+                productsList.innerText = "";
+                displayProducts();
+            }
+        }
 
         function displayWomenCategory() {
             const findWomenProducts = (product) => {
@@ -131,7 +156,10 @@
                 div.classList.add("div")
                 img.classList.add("img")
                 div2.classList.add("div2")
+
+
             })
+
 
         }
 
@@ -160,132 +188,7 @@
                 div.classList.add("div")
                 img.classList.add("img")
                 div2.classList.add("div2")
-            })
-
-        }
-
-
-
-        function sortProductsAZ() {
-            products.sort((a, b) => (a.name > b.name) ? 1 : -1)
-            productsList.innerText = "";
-            products.forEach(({
-                name,
-                price,
-                image
-
-            }) => {
-                let li = document.createElement("li");
-                let div = document.createElement("div");
-                let img = document.createElement("img");
-                let div2 = document.createElement("div");
-                img.src = image;
-                div2.innerText = name + " " + zloty.format(price);
-                productsList.appendChild(li);
-                li.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(div2);
-                li.classList.add("li")
-                div.classList.add("div")
-                img.classList.add("img")
-                div2.classList.add("div2")
-            })
-        }
-
-
-        function sortProductsZA() {
-            products.sort((a, b) => (a.name > b.name) ? -1 : 1)
-            productsList.innerText = "";
-            products.forEach(({
-                name,
-                price,
-                image
-            }) => {
-                let li = document.createElement("li");
-                let div = document.createElement("div");
-                let img = document.createElement("img");
-                let div2 = document.createElement("div");
-                img.src = image;
-                div2.innerText = name + " " + zloty.format(price);
-                productsList.appendChild(li);
-                li.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(div2);
-                li.classList.add("li")
-                div.classList.add("div")
-                img.classList.add("img")
-                div2.classList.add("div2")
-            })
-        }
-
-
-
-        function sortProductsLow() {
-            products.sort((a, b) => (a.price > b.price) ? 1 : -1)
-            productsList.innerText = "";
-            products.forEach(({
-                name,
-                price,
-                image
-            }) => {
-                let li = document.createElement("li");
-                let div = document.createElement("div");
-                let img = document.createElement("img");
-                let div2 = document.createElement("div");
-                img.src = image;
-                div2.innerText = name + " " + zloty.format(price);
-                productsList.appendChild(li);
-                li.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(div2);
-                li.classList.add("li")
-                div.classList.add("div")
-                img.classList.add("img")
-                div2.classList.add("div2")
 
             })
-        }
 
-        function sortProductsHigh() {
-            products.sort((a, b) => (a.price > b.price) ? -1 : 1)
-            productsList.innerText = "";
-            products.forEach(({
-                name,
-                price,
-                image
-            }) => {
-                let li = document.createElement("li");
-                let div = document.createElement("div");
-                let img = document.createElement("img");
-                let div2 = document.createElement("div");
-                img.src = image;
-                div2.innerText = name + " " + zloty.format(price);
-                productsList.appendChild(li);
-                li.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(div2);
-                li.classList.add("li")
-                div.classList.add("div")
-                img.classList.add("img")
-                div2.classList.add("div2")
-
-            })
-        }
-
-
-
-        function getSelectedValue() {
-            const selectedValue = document.getElementById("selectOption").value;
-            if (selectedValue === "az") {
-                return sortProductsAZ();
-            }
-            if (selectedValue === "za") {
-                return sortProductsZA();
-            }
-            if (selectedValue === "low") {
-                return sortProductsLow();
-            }
-            if (selectedValue === "high") {
-                return sortProductsHigh();
-            }
         }
