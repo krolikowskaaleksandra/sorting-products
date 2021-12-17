@@ -80,7 +80,7 @@
         });
 
 
-        function displayProducts() {
+        function displayProducts(products) {
             products.forEach(({
                 name,
                 price,
@@ -102,34 +102,7 @@
                 div2.classList.add("div2")
             })
         }
-        displayProducts();
-
-
-
-        function sortProducts() {
-            const selectedValue = document.getElementById("selectOption").value;
-            if (selectedValue === "az") {
-                products.sort((a, b) => (a.name > b.name) ? 1 : -1)
-                productsList.innerText = "";
-                displayProducts();
-
-            }
-            if (selectedValue === "za") {
-                products.sort((a, b) => (a.name > b.name) ? -1 : 1)
-                productsList.innerText = "";
-                displayProducts();
-            }
-            if (selectedValue === "low") {
-                products.sort((a, b) => (a.price > b.price) ? 1 : -1)
-                productsList.innerText = "";
-                displayProducts();
-            }
-            if (selectedValue === "high") {
-                products.sort((a, b) => (a.price > b.price) ? -1 : 1)
-                productsList.innerText = "";
-                displayProducts();
-            }
-        }
+        displayProducts(products);
 
         function displayWomenCategory() {
             const findWomenProducts = (product) => {
@@ -137,31 +110,10 @@
             }
             const womenProducts = products.filter(findWomenProducts);
             productsList.innerText = "";
-            womenProducts.forEach(({
-                name,
-                price,
-                image,
-            }) => {
-                let li = document.createElement("li");
-                let div = document.createElement("div");
-                let img = document.createElement("img");
-                let div2 = document.createElement("div");
-                img.src = image;
-                div2.innerText = name + " " + zloty.format(price);
-                productsList.appendChild(li);
-                li.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(div2);
-                li.classList.add("li")
-                div.classList.add("div")
-                img.classList.add("img")
-                div2.classList.add("div2")
-
-
-            })
-
-
+            displayProducts(womenProducts);
+            sessionStorage.setItem("category", "woman")
         }
+
 
         function displayMenCategory() {
             const findMenProducts = (product) => {
@@ -169,26 +121,49 @@
             }
             const menProducts = products.filter(findMenProducts);
             productsList.innerText = "";
-            menProducts.forEach(({
-                name,
-                price,
-                image,
-            }) => {
-                let li = document.createElement("li");
-                let div = document.createElement("div");
-                let img = document.createElement("img");
-                let div2 = document.createElement("div");
-                img.src = image;
-                div2.innerText = name + " " + zloty.format(price);
-                productsList.appendChild(li);
-                li.appendChild(div);
-                div.appendChild(img);
-                div.appendChild(div2);
-                li.classList.add("li")
-                div.classList.add("div")
-                img.classList.add("img")
-                div2.classList.add("div2")
+            displayProducts(menProducts);
+            sessionStorage.setItem("category", "man")
+        }
 
-            })
 
+
+        function sortProducts(products) {
+            const selectedValue = document.getElementById("selectOption").value;
+            if (selectedValue === "az") {
+                products.sort((a, b) => (a.name > b.name) ? 1 : -1)
+                productsList.innerText = "";
+                if (sessionStorage.getItem('category') === "woman") {
+                    displayWomenCategory()
+                } else {
+                    displayMenCategory();
+                }
+
+            }
+            if (selectedValue === "za") {
+                products.sort((a, b) => (a.name > b.name) ? -1 : 1)
+                productsList.innerText = "";
+                if (sessionStorage.getItem('category') === "woman") {
+                    displayWomenCategory()
+                } else {
+                    displayMenCategory();
+                }
+            }
+            if (selectedValue === "low") {
+                products.sort((a, b) => (a.price > b.price) ? 1 : -1)
+                productsList.innerText = "";
+                if (sessionStorage.getItem('category') === "woman") {
+                    displayWomenCategory()
+                } else {
+                    displayMenCategory();
+                }
+            }
+            if (selectedValue === "high") {
+                products.sort((a, b) => (a.price > b.price) ? -1 : 1)
+                productsList.innerText = "";
+                if (sessionStorage.getItem('category') === "woman") {
+                    displayWomenCategory()
+                } else {
+                    displayMenCategory();
+                }
+            }
         }
