@@ -100,6 +100,7 @@
                 div.classList.add("div")
                 img.classList.add("img")
                 div2.classList.add("div2")
+                sessionStorage.removeItem('category');
             })
         }
         displayProducts(products);
@@ -132,38 +133,74 @@
             if (selectedValue === "az") {
                 products.sort((a, b) => (a.name > b.name) ? 1 : -1)
                 productsList.innerText = "";
-                if (sessionStorage.getItem('category') === "woman") {
-                    displayWomenCategory()
-                } else {
-                    displayMenCategory();
+                switch (sessionStorage.getItem('category')) {
+                    case "woman": {
+                        displayWomenCategory();
+                        break;
+                    }
+                    case "man": {
+                        displayMenCategory();
+                        break;
+                    }
+                    default: {
+                        displayProducts(products);
+                        break;
+                    }
                 }
-
             }
             if (selectedValue === "za") {
                 products.sort((a, b) => (a.name > b.name) ? -1 : 1)
                 productsList.innerText = "";
-                if (sessionStorage.getItem('category') === "woman") {
-                    displayWomenCategory()
-                } else {
-                    displayMenCategory();
+                switch (sessionStorage.getItem('category')) {
+                    case "woman": {
+                        displayWomenCategory();
+                        break;
+                    }
+                    case "man": {
+                        displayMenCategory();
+                        break;
+                    }
+
+                    default: {
+                        displayProducts(products);
+                        break;
+                    }
                 }
             }
             if (selectedValue === "low") {
                 products.sort((a, b) => (a.price > b.price) ? 1 : -1)
                 productsList.innerText = "";
-                if (sessionStorage.getItem('category') === "woman") {
-                    displayWomenCategory()
-                } else {
-                    displayMenCategory();
+                switch (sessionStorage.getItem('category')) {
+                    case "woman": {
+                        displayWomenCategory();
+                        break;
+                    }
+                    case "man": {
+                        displayMenCategory();
+                        break;
+                    }
+                    default: {
+                        displayProducts(products);
+                        break;
+                    }
                 }
             }
             if (selectedValue === "high") {
                 products.sort((a, b) => (a.price > b.price) ? -1 : 1)
                 productsList.innerText = "";
-                if (sessionStorage.getItem('category') === "woman") {
-                    displayWomenCategory()
-                } else {
-                    displayMenCategory();
+                switch (sessionStorage.getItem('category')) {
+                    case "woman": {
+                        displayWomenCategory();
+                        break;
+                    }
+                    case "man": {
+                        displayMenCategory();
+                        break;
+                    }
+                    default: {
+                        displayProducts(products);
+                        break;
+                    }
                 }
             }
         }
