@@ -90,7 +90,7 @@
                 },
         ]
 
-        const productsList = document.getElementById("productsList");
+        const productsList = document.getElementById("product-list");
 
         const zloty = new Intl.NumberFormat("en-PL", {
                 style: "currency",
