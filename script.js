@@ -90,7 +90,7 @@
                 },
         ]
 
-        const productsList = document.getElementById("product-list");
+        const productList = document.getElementById("product-list");
 
         const zloty = new Intl.NumberFormat("en-PL", {
                 style: "currency",
@@ -110,7 +110,7 @@
                         let div2 = document.createElement("div");
                         img.src = image;
                         div2.innerText = name + " " + zloty.format(price);
-                        productsList.appendChild(li);
+                        productList.appendChild(li);
                         li.appendChild(div);
                         div.appendChild(img);
                         div.appendChild(div2);
@@ -119,30 +119,86 @@
                         img.classList.add("img")
                         div2.classList.add("div2")
                         sessionStorage.removeItem('category');
+
+
                 })
         }
         displayProducts(products);
 
-        // function displayWomenCategory() {
-        //     const findWomenProducts = (product) => {
-        //         return product.category === "woman";
-        //     }
-        //     const womenProducts = products.filter(findWomenProducts);
-        //     productsList.innerText = "";
-        //     displayProducts(womenProducts);
-        //     sessionStorage.setItem("category", "woman")
-        // }
+        const allProducts = document.getElementById("allProducts");
+        const toniki = document.getElementById("toniki");
+        const serum = document.getElementById("serum");
+        const kremy = document.getElementById("kremy");
+        const pianki = document.getElementById("pianki");
+        const peeling = document.getElementById("peeling");
+
+        function displayAllCategory() {
+                const findAllProducts = (product) => {
+                        return product;
+                }
+                const allProducts = products.filter(findAllProducts);
+                productList.innerText = "";
+                displayProducts(allProducts);
+                sessionStorage.setItem("category", "")
+        }
+
+        function displayTonikiCategory() {
+                const findTonikiProducts = (product) => {
+                        return product.category === "toniki";
+                }
+                const tonikiProducts = products.filter(findTonikiProducts);
+                productList.innerText = "";
+                displayProducts(tonikiProducts);
+                sessionStorage.setItem("category", "toniki")
+        }
+
+        function displaySerumCategory() {
+                const findSerumProducts = (product) => {
+                        return product.category === "serum";
+                }
+                const serumProducts = products.filter(findSerumProducts);
+                productList.innerText = "";
+                displayProducts(serumProducts);
+                sessionStorage.setItem("category", "serum")
+        }
+
+        function displayKremyCategory() {
+                const findKremyProducts = (product) => {
+                        return product.category === "kremy";
+                }
+                const kremyProducts = products.filter(findKremyProducts);
+                productList.innerText = "";
+                displayProducts(kremyProducts);
+                sessionStorage.setItem("category", "kremy")
+        }
+
+        function displayPiankiCategory() {
+                const findPiankiProducts = (product) => {
+                        return product.category === "pianki";
+                }
+                const piankiProducts = products.filter(findPiankiProducts);
+                productList.innerText = "";
+                displayProducts(piankiProducts);
+                sessionStorage.setItem("category", "pianki")
+        }
+
+        function displayPeelingCategory() {
+                const findPeelingProducts = (product) => {
+                        return product.category === "peeling";
+                }
+                const peelingProducts = products.filter(findPeelingProducts);
+                productList.innerText = "";
+                displayProducts(peelingProducts);
+                sessionStorage.setItem("category", "peeling")
+        }
 
 
-        // function displayMenCategory() {
-        //     const findMenProducts = (product) => {
-        //         return product.category === "man";
-        //     }
-        //     const menProducts = products.filter(findMenProducts);
-        //     productsList.innerText = "";
-        //     displayProducts(menProducts);
-        //     sessionStorage.setItem("category", "man")
-        // }
+        allProducts.addEventListener("click", displayAllCategory)
+        toniki.addEventListener("click", displayTonikiCategory)
+        serum.addEventListener("click", displaySerumCategory)
+        kremy.addEventListener("click", displayKremyCategory)
+        pianki.addEventListener("click", displayPiankiCategory)
+        peeling.addEventListener("click", displayPeelingCategory)
 
 
 

@@ -33,7 +33,7 @@
     </header>
 
 
-
+    <!-- Zmienic tutaj onchange - przeniesc to do js: -->
     <!-- <select id="selectOption" onchange="sortProducts(products)">
         <option value="">Choose an option</option>
         <option id="az" value="az">A-Z</option>
@@ -47,15 +47,16 @@
 
     <main class="main-container">
 
-        <div class="category-container">
+        <aside class="category-container">
             <ul class="category-list">
-                <li>Toniki</li>
-                <li>Serum</li>
-                <li>Kremy</li>
-                <li>Pianki</li>
-                <li>Peeling</li>
+                <li id="allProducts">Wszystkie</br>produkty</li>
+                <li id="toniki">Toniki</li>
+                <li id="serum">Serum</li>
+                <li id="kremy">Kremy</li>
+                <li id="pianki">Pianki</li>
+                <li id="peeling">Peeling</li>
             </ul>
-        </div>
+        </aside>
 
         <div id="product-container">
             <ul id="product-list"></ul>
