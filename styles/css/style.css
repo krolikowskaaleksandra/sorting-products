@@ -451,6 +451,7 @@ textarea {
     position: absolute;
     top: 0;
     left: 0;
+    margin-top: 50px;
     width: 120px; }
     .main-container .category-container .category-list {
       list-style: none; }
@@ -466,8 +467,10 @@ textarea {
         .main-container .category-container .category-list li:hover {
           color: #f68fc6;
           cursor: pointer; }
+  .main-container #product-container #selectOption {
+    float: right; }
   .main-container #product-container #product-list {
-    margin-top: 40px;
+    margin-top: 50px;
     justify-content: center;
     align-items: center;
     width: 100%;

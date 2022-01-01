@@ -9,13 +9,12 @@
         position: absolute;
         top: 0;
         left: 0;
+        margin-top: 50px;
         width: 120px;
-        // border: 1px solid rgb(177, 104, 104);
+        // border: 1px solid rgb(130, 24, 192);
 
         .category-list {
             list-style: none;
-
-
 
             li {
                 flex-direction: column;
@@ -43,8 +42,13 @@
     #product-container {
         // border: 1px solid rgb(177, 104, 104);
 
+        #selectOption {
+            float: right;
+        }
+
         #product-list {
-            margin-top: 40px;
+            // border: 1px solid rgb(162, 226, 13);
+            margin-top: 50px;
             justify-content: center;
             align-items: center;
             width: 100%;
