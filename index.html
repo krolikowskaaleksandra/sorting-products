@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <title>Sorting products</title>
     <link rel="stylesheet" href="styles/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -17,7 +18,6 @@
             </ul>
         </div>
 
-        POPRAWIC FUNKCJE PRZY WYSWIETLANIU PRODUKTOW PO KATEGORII - POWTARZAJA SIE!
 
         <div class="logo-container">
             <img src="images/logo.png" class="logo">
@@ -39,6 +39,17 @@
 
     <main class="main-container">
 
+        <div class="selectSort">
+            <select id="selectOption" onchange="sortProducts(products)">
+                <option selected disabled>Sortuj</option>
+                <option id="ASC" value="ASC">Od A do Z</option>
+                <option id="DESC" value="DESC">Od Z do A</option>
+                <option id="low" value="low">Najniższa cena</option>
+                <option id="high" value="high">Najwyższa cena</option>
+            </select>
+
+        </div>
+
 
 
         <aside class="category-container">
@@ -54,14 +65,6 @@
 
 
         <div id="product-container">
-            <!-- Zmienic tutaj onchange - przeniesc to do js: -->
-            <select id="selectOption" onchange="sortProducts(products)">
-                <option value="">Choose an option</option>
-                <option id="az" value="az">A-Z</option>
-                <option id="za" value="za">Z-A</option>
-                <option id="low" value="low">Low</option>
-                <option id="high" value="high">High</option>
-            </select>
             <ul id="product-list"></ul>
         </div>
 

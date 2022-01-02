@@ -132,6 +132,7 @@
         const pianki = document.getElementById("pianki");
         const peeling = document.getElementById("peeling");
 
+
         function displayAllCategory() {
                 const findAllProducts = (product) => {
                         return product;
@@ -201,80 +202,126 @@
         peeling.addEventListener("click", displayPeelingCategory)
 
 
-
-        // function sortProducts(products) {
-        //     const selectedValue = document.getElementById("selectOption").value;
-        //     if (selectedValue === "az") {
-        //         products.sort((a, b) => (a.name > b.name) ? 1 : -1)
-        //         productsList.innerText = "";
-        //         switch (sessionStorage.getItem('category')) {
-        //             case "woman": {
-        //                 displayWomenCategory();
-        //                 break;
-        //             }
-        //             case "man": {
-        //                 displayMenCategory();
-        //                 break;
-        //             }
-        //             default: {
-        //                 displayProducts(products);
-        //                 break;
-        //             }
-        //         }
-        //     }
-        //     if (selectedValue === "za") {
-        //         products.sort((a, b) => (a.name > b.name) ? -1 : 1)
-        //         productsList.innerText = "";
-        //         switch (sessionStorage.getItem('category')) {
-        //             case "woman": {
-        //                 displayWomenCategory();
-        //                 break;
-        //             }
-        //             case "man": {
-        //                 displayMenCategory();
-        //                 break;
-        //             }
-
-        //             default: {
-        //                 displayProducts(products);
-        //                 break;
-        //             }
-        //         }
-        //     }
-        //     if (selectedValue === "low") {
-        //         products.sort((a, b) => (a.price > b.price) ? 1 : -1)
-        //         productsList.innerText = "";
-        //         switch (sessionStorage.getItem('category')) {
-        //             case "woman": {
-        //                 displayWomenCategory();
-        //                 break;
-        //             }
-        //             case "man": {
-        //                 displayMenCategory();
-        //                 break;
-        //             }
-        //             default: {
-        //                 displayProducts(products);
-        //                 break;
-        //             }
-        //         }
-        //     }
-        //     if (selectedValue === "high") {
-        //         products.sort((a, b) => (a.price > b.price) ? -1 : 1)
-        //         productsList.innerText = "";
-        //         switch (sessionStorage.getItem('category')) {
-        //             case "woman": {
-        //                 displayWomenCategory();
-        //                 break;
-        //             }
-        //             case "man": {
-        //                 displayMenCategory();
-        //                 break;
-        //             }
-        //             default: {
-        //                 displayProducts(products);
-        //                 break;
-        //             }
-        //         }
-        //     }
-        // }
+        function sortProducts(products) {
+                const selectedValue = document.getElementById("selectOption").value;
+                if (selectedValue === "ASC") {
+                        products.sort((a, b) => a.name.localeCompare(b.name));
+                        productList.innerText = "";
+                        switch (sessionStorage.getItem('category')) {
+                                case "toniki": {
+                                        displayTonikiCategory();
+                                        break;
+                                }
+                                case "serum": {
+                                        displaySerumCategory();
+                                        break;
+                                }
+                                case "kremy": {
+                                        displayKremyCategory();
+                                        break;
+                                }
+                                case "pianki": {
+                                        displayPiankiCategory();
+                                        break;
+                                }
+                                case "peeling": {
+                                        displayPeelingCategory();
+                                        break;
+                                }
+                                default: {
+                                        displayProducts(products);
+                                        break;
+                                }
+                        }
+                }
+                if (selectedValue === "DESC") {
+                        products.sort((a, b) => b.name.localeCompare(a.name));
+                        productList.innerText = "";
+                        switch (sessionStorage.getItem('category')) {
+                                case "toniki": {
+                                        displayTonikiCategory();
+                                        break;
+                                }
+                                case "serum": {
+                                        displaySerumCategory();
+                                        break;
+                                }
+                                case "kremy": {
+                                        displayKremyCategory();
+                                        break;
+                                }
+                                case "pianki": {
+                                        displayPiankiCategory();
+                                        break;
+                                }
+                                case "peeling": {
+                                        displayPeelingCategory();
+                                        break;
+                                }
+                                default: {
+                                        displayProducts(products);
+                                        break;
+                                }
+                        }
+                }
+                if (selectedValue === "low") {
+                        products.sort((a, b) => (a.price > b.price) ? 1 : -1)
+                        productList.innerText = "";
+                        switch (sessionStorage.getItem('category')) {
+                                case "toniki": {
+                                        displayTonikiCategory();
+                                        break;
+                                }
+                                case "serum": {
+                                        displaySerumCategory();
+                                        break;
+                                }
+                                case "kremy": {
+                                        displayKremyCategory();
+                                        break;
+                                }
+                                case "pianki": {
+                                        displayPiankiCategory();
+                                        break;
+                                }
+                                case "peeling": {
+                                        displayPeelingCategory();
+                                        break;
+                                }
+                                default: {
+                                        displayProducts(products);
+                                        break;
+                                }
+                        }
+                }
+                if (selectedValue === "high") {
+                        products.sort((a, b) => (a.price > b.price) ? -1 : 1)
+                        productList.innerText = "";
+                        switch (sessionStorage.getItem('category')) {
+                                case "toniki": {
+                                        displayTonikiCategory();
+                                        break;
+                                }
+                                case "serum": {
+                                        displaySerumCategory();
+                                        break;
+                                }
+                                case "kremy": {
+                                        displayKremyCategory();
+                                        break;
+                                }
+                                case "pianki": {
+                                        displayPiankiCategory();
+                                        break;
+                                }
+                                case "peeling": {
+                                        displayPeelingCategory();
+                                        break;
+                                }
+                                default: {
+                                        displayProducts(products);
+                                        break;
+                                }
+                        }
+                }
+        }
