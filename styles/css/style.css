@@ -416,6 +416,9 @@ textarea {
   font-family: 'Roboto', sans-serif; }
   .header-main .login-container .login-list li:not(:last-child) {
     margin-right: 15px; }
+  .header-main .login-container .login-list li:hover {
+    color: #f68fc6;
+    cursor: pointer; }
 
 .header-main .logo-container {
   height: 100px;
@@ -445,6 +448,7 @@ textarea {
 
 .main-container {
   max-width: 1280px;
+  min-height: 800px;
   position: relative;
   margin: 30px auto 0 auto; }
   .main-container .selectSort {
@@ -505,8 +509,29 @@ textarea {
   background-color: #000000;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  position: relative;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .footer .footer-links {
+    width: 400px;
+    padding: 15px;
+    position: absolute;
+    text-align: center; }
+    .footer .footer-links .fa {
+      font-size: 48px;
+      padding: 10px;
+      color: inherit; }
   .footer .footer-bottom {
+    width: 400px;
     padding: 10px;
     display: flex;
-    border: 1px solid pink; }
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    left: 0;
+    margin: auto; }
+    .footer .footer-bottom span {
+      margin: auto; }

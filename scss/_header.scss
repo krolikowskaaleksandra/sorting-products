@@ -18,6 +18,11 @@
                 &:not(:last-child) {
                     margin-right: 15px;
                 }
+
+                &:hover {
+                    color: $pink;
+                    cursor: pointer;
+                }
             }
         }
     }
