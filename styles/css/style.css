@@ -411,7 +411,7 @@ textarea {
   justify-content: flex-end;
   list-style: none;
   height: 50px;
-  padding-right: 35px;
+  padding-right: 45px;
   font-size: 15px;
   font-family: 'Roboto', sans-serif; }
   .header-main .login-container .login-list li:not(:last-child) {
