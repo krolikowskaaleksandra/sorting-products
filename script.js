@@ -98,7 +98,7 @@
         });
 
 
-        function displayProducts(products) {
+        const displayProducts = (products) => {
                 products.forEach(({
                         name,
                         price,
@@ -133,7 +133,7 @@
         const peeling = document.getElementById("peeling");
 
 
-        function displayAllCategory() {
+        const displayAllCategory = () => {
                 const findAllProducts = (product) => {
                         return product;
                 }
@@ -143,7 +143,7 @@
                 sessionStorage.setItem("category", "")
         }
 
-        function displayTonikiCategory() {
+        const displayTonikiCategory = () => {
                 const findTonikiProducts = (product) => {
                         return product.category === "toniki";
                 }
@@ -153,7 +153,7 @@
                 sessionStorage.setItem("category", "toniki")
         }
 
-        function displaySerumCategory() {
+        const displaySerumCategory = () => {
                 const findSerumProducts = (product) => {
                         return product.category === "serum";
                 }
@@ -163,7 +163,7 @@
                 sessionStorage.setItem("category", "serum")
         }
 
-        function displayKremyCategory() {
+        const displayKremyCategory = () => {
                 const findKremyProducts = (product) => {
                         return product.category === "kremy";
                 }
@@ -173,7 +173,7 @@
                 sessionStorage.setItem("category", "kremy")
         }
 
-        function displayPiankiCategory() {
+        const displayPiankiCategory = () => {
                 const findPiankiProducts = (product) => {
                         return product.category === "pianki";
                 }
@@ -183,7 +183,7 @@
                 sessionStorage.setItem("category", "pianki")
         }
 
-        function displayPeelingCategory() {
+        const displayPeelingCategory = () => {
                 const findPeelingProducts = (product) => {
                         return product.category === "peeling";
                 }
@@ -202,7 +202,7 @@
         peeling.addEventListener("click", displayPeelingCategory)
 
 
-        function sortProducts(products) {
+        const sortProducts = (products) => {
                 const selectedValue = document.getElementById("selectOption").value;
                 if (selectedValue === "ASC") {
                         products.sort((a, b) => a.name.localeCompare(b.name));
