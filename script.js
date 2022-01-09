@@ -1,91 +1,91 @@
         products = [{
-                        name: "Tonik normalizujący",
+                        name: "Normalizing facial toner",
                         price: 29,
-                        image: "images/tonik1.png",
+                        image: "images/facialToner1.png",
                         category: "facialToner",
                 },
                 {
-                        name: "Tonik oczyszczający",
+                        name: "Antibacterial facial toner",
                         price: 35,
-                        image: "images/tonik2.png",
+                        image: "images/facialToner2.png",
                         category: "facialToner",
                 },
                 {
-                        name: "Tonik regulujący",
+                        name: "Regulating facial toner",
                         price: 22,
-                        image: "images/tonik3.png",
+                        image: "images/facialToner3.png",
                         category: "facialToner",
                 },
                 {
-                        name: "Przeciwzmarszczkowe serum",
+                        name: "Anti wrinkle serum",
                         price: 49,
                         image: "images/serum1.png",
                         category: "serum",
                 },
                 {
-                        name: "Serum z olejkiem arganowym",
+                        name: "Argan oil serum",
                         price: 39,
                         image: "images/serum2.png",
                         category: "serum",
                 },
                 {
-                        name: "Serum do twarzy na noc",
+                        name: "Night face serum",
                         price: 36,
                         image: "images/serum3.png",
                         category: "serum",
                 },
                 {
-                        name: "Krem na dzień",
+                        name: "Day cream",
                         price: 49,
-                        image: "images/krem1.png",
+                        image: "images/cream1.png",
                         category: "cream",
                 },
                 {
-                        name: "Krem przeciwzmarszczkowy",
+                        name: "Anti wrinkle cream",
                         price: 59,
-                        image: "images/krem2.png",
+                        image: "images/cream2.png",
                         category: "cream",
                 },
                 {
-                        name: "Krem na noc",
+                        name: "Night cream",
                         price: 50,
-                        image: "images/krem3.png",
+                        image: "images/cream3.png",
                         category: "cream",
                 },
                 {
-                        name: "Pianka oczyszczająca",
+                        name: "Gentle face wash",
                         price: 39,
-                        image: "images/pianka1.png",
+                        image: "images/faceWash1.png",
                         category: "faceWash",
                 },
                 {
-                        name: "Pianka do mycia twarzy",
+                        name: "Organic face wash",
                         price: 30,
-                        image: "images/pianka2.png",
+                        image: "images/faceWash2.png",
                         category: "faceWash",
                 },
                 {
-                        name: "Delikatna pianka do twarzy",
+                        name: "Detox face wash",
                         price: 38,
-                        image: "images/pianka3.png",
+                        image: "images/faceWash3.png",
                         category: "faceWash",
                 },
                 {
-                        name: "Peeling do twarzy",
+                        name: "Strawberry face scrub",
                         price: 24,
-                        image: "images/peeling1.png",
+                        image: "images/faceScrub1.png",
                         category: "faceScrub",
                 },
                 {
-                        name: "Łagodzący peeling",
+                        name: "Smoothing face scrub",
                         price: 29,
-                        image: "images/peeling2.png",
+                        image: "images/faceScrub2.png",
                         category: "faceScrub",
                 },
                 {
-                        name: "Peeling cukrowy",
+                        name: "Hydrating face scrub",
                         price: 34,
-                        image: "images/peeling3.png",
+                        image: "images/faceScrub3.png",
                         category: "faceScrub",
                 },
         ]
@@ -104,20 +104,20 @@
                         price,
                         image,
                 }) => {
-                        let li = document.createElement("li");
-                        let div = document.createElement("div");
-                        let img = document.createElement("img");
-                        let div2 = document.createElement("div");
-                        img.src = image;
-                        div2.innerText = name + " " + zloty.format(price);
-                        productList.appendChild(li);
-                        li.appendChild(div);
-                        div.appendChild(img);
-                        div.appendChild(div2);
-                        li.classList.add("li")
-                        div.classList.add("div")
-                        img.classList.add("img")
-                        div2.classList.add("div2")
+                        let product = document.createElement("li");
+                        let productData = document.createElement("div");
+                        let productImage = document.createElement("img");
+                        let productDescription = document.createElement("div");
+                        productImage.src = image;
+                        productDescription.innerText = name + " " + zloty.format(price);
+                        productList.appendChild(product);
+                        product.appendChild(productData);
+                        productData.appendChild(productImage);
+                        productData.appendChild(productDescription);
+                        product.classList.add("product")
+                        productData.classList.add("product-data")
+                        productImage.classList.add("product-image")
+                        productDescription.classList.add("product-description")
                         sessionStorage.removeItem('category');
 
 
@@ -143,15 +143,16 @@
                 sessionStorage.setItem("category", "")
         }
 
-        const displayTonikiCategory = () => {
-                const findTonikiProducts = (product) => {
+        const displayFacialTonerCategory = () => {
+                const findFacialTonerProducts = (product) => {
                         return product.category === "facialToner";
                 }
-                const tonikiProducts = products.filter(findTonikiProducts);
+                const facialTonerProducts = products.filter(findFacialTonerProducts);
                 productList.innerText = "";
-                displayProducts(tonikiProducts);
+                displayProducts(facialTonerProducts);
                 sessionStorage.setItem("category", "facialToner")
         }
+
 
         const displaySerumCategory = () => {
                 const findSerumProducts = (product) => {
@@ -163,53 +164,53 @@
                 sessionStorage.setItem("category", "serum")
         }
 
-        const displayKremyCategory = () => {
-                const findKremyProducts = (product) => {
+        const displayCreamCategory = () => {
+                const findCreamProducts = (product) => {
                         return product.category === "cream";
                 }
-                const kremyProducts = products.filter(findKremyProducts);
+                const creamProducts = products.filter(findCreamProducts);
                 productList.innerText = "";
-                displayProducts(kremyProducts);
+                displayProducts(creamProducts);
                 sessionStorage.setItem("category", "cream")
         }
 
-        const displayPiankiCategory = () => {
-                const findPiankiProducts = (product) => {
+        const displayFaceWashCategory = () => {
+                const findFaceWashProducts = (product) => {
                         return product.category === "faceWash";
                 }
-                const piankiProducts = products.filter(findPiankiProducts);
+                const faceWashProducts = products.filter(findFaceWashProducts);
                 productList.innerText = "";
-                displayProducts(piankiProducts);
+                displayProducts(faceWashProducts);
                 sessionStorage.setItem("category", "faceWash")
         }
 
-        const displayPeelingCategory = () => {
-                const findPeelingProducts = (product) => {
+        const displayFaceScrubCategory = () => {
+                const findFaceScrubProducts = (product) => {
                         return product.category === "faceScrub";
                 }
-                const peelingProducts = products.filter(findPeelingProducts);
+                const faceScrubProducts = products.filter(findFaceScrubProducts);
                 productList.innerText = "";
-                displayProducts(peelingProducts);
+                displayProducts(faceScrubProducts);
                 sessionStorage.setItem("category", "faceScrub")
         }
 
 
         allProducts.addEventListener("click", displayAllCategory)
-        facialToner.addEventListener("click", displayTonikiCategory)
+        facialToner.addEventListener("click", displayFacialTonerCategory)
         serum.addEventListener("click", displaySerumCategory)
-        cream.addEventListener("click", displayKremyCategory)
-        faceWash.addEventListener("click", displayPiankiCategory)
-        faceScrub.addEventListener("click", displayPeelingCategory)
+        cream.addEventListener("click", displayCreamCategory)
+        faceWash.addEventListener("click", displayFaceWashCategory)
+        faceScrub.addEventListener("click", displayFaceScrubCategory)
 
 
         const sortProducts = (products) => {
-                const selectedValue = document.getElementById("selectOption").value;
+                const selectedValue = document.getElementById("select-option").value;
                 if (selectedValue === "ASC") {
                         products.sort((a, b) => a.name.localeCompare(b.name));
                         productList.innerText = "";
                         switch (sessionStorage.getItem('category')) {
                                 case "facialToner": {
-                                        displayTonikiCategory();
+                                        displayFacialTonerCategory();
                                         break;
                                 }
                                 case "serum": {
@@ -217,15 +218,15 @@
                                         break;
                                 }
                                 case "cream": {
-                                        displayKremyCategory();
+                                        displayCreamCategory();
                                         break;
                                 }
                                 case "faceWash": {
-                                        displayPiankiCategory();
+                                        displayFaceWashCategory();
                                         break;
                                 }
                                 case "faceScrub": {
-                                        displayPeelingCategory();
+                                        displayFaceScrubCategory();
                                         break;
                                 }
                                 default: {
@@ -239,7 +240,7 @@
                         productList.innerText = "";
                         switch (sessionStorage.getItem('category')) {
                                 case "facialToner": {
-                                        displayTonikiCategory();
+                                        displayFacialTonerCategory();
                                         break;
                                 }
                                 case "serum": {
@@ -247,15 +248,15 @@
                                         break;
                                 }
                                 case "cream": {
-                                        displayKremyCategory();
+                                        displayCreamCategory();
                                         break;
                                 }
                                 case "faceWash": {
-                                        displayPiankiCategory();
+                                        displayFaceWashCategory();
                                         break;
                                 }
                                 case "faceScrub": {
-                                        displayPeelingCategory();
+                                        displayFaceScrubCategory();
                                         break;
                                 }
                                 default: {
@@ -269,7 +270,7 @@
                         productList.innerText = "";
                         switch (sessionStorage.getItem('category')) {
                                 case "facialToner": {
-                                        displayTonikiCategory();
+                                        displayFacialTonerCategory();
                                         break;
                                 }
                                 case "serum": {
@@ -277,15 +278,15 @@
                                         break;
                                 }
                                 case "cream": {
-                                        displayKremyCategory();
+                                        displayCreamCategory();
                                         break;
                                 }
                                 case "faceWash": {
-                                        displayPiankiCategory();
+                                        displayFaceWashCategory();
                                         break;
                                 }
                                 case "faceScrub": {
-                                        displayPeelingCategory();
+                                        displayFaceScrubCategory();
                                         break;
                                 }
                                 default: {
@@ -299,7 +300,7 @@
                         productList.innerText = "";
                         switch (sessionStorage.getItem('category')) {
                                 case "facialToner": {
-                                        displayTonikiCategory();
+                                        displayFacialTonerCategory();
                                         break;
                                 }
                                 case "serum": {
@@ -307,15 +308,15 @@
                                         break;
                                 }
                                 case "cream": {
-                                        displayKremyCategory();
+                                        displayCreamCategory();
                                         break;
                                 }
                                 case "faceWash": {
-                                        displayPiankiCategory();
+                                        displayFaceWashCategory();
                                         break;
                                 }
                                 case "faceScrub": {
-                                        displayPeelingCategory();
+                                        displayFaceScrubCategory();
                                         break;
                                 }
                                 default: {

@@ -451,10 +451,10 @@ textarea {
   min-height: 800px;
   position: relative;
   margin: 30px auto 0 auto; }
-  .main-container .selectSort {
+  .main-container #select-sort {
     width: 100%;
     height: 60px; }
-    .main-container .selectSort #selectOption {
+    .main-container #select-sort #select-option {
       padding: 3px 20px;
       font-family: 'Roboto', sans-serif;
       float: right;
@@ -478,7 +478,7 @@ textarea {
         .main-container .category-container .category-list li:hover {
           color: #f68fc6;
           cursor: pointer; }
-  .main-container #product-container #product-list {
+  .main-container .product-container #product-list {
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -486,17 +486,17 @@ textarea {
     grid-template-columns: repeat(3, minmax(250px, 250px));
     column-gap: 30px;
     row-gap: 50px; }
-    .main-container #product-container #product-list .li {
+    .main-container .product-container #product-list .product {
       list-style-type: none;
       height: 300px; }
-      .main-container #product-container #product-list .li .div {
+      .main-container .product-container #product-list .product .product-data {
         height: 250px; }
-        .main-container #product-container #product-list .li .div .img {
+        .main-container .product-container #product-list .product .product-data .product-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center; }
-        .main-container #product-container #product-list .li .div .div2 {
+        .main-container .product-container #product-list .product .product-data .product-description {
           margin-top: 20px;
           font-size: 15px;
           font-family: 'Roboto', sans-serif;

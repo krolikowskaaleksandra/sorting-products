@@ -40,8 +40,8 @@
 
     <main class="main-container">
 
-        <div class="selectSort">
-            <select id="selectOption" onchange="sortProducts(products)">
+        <div id="select-sort">
+            <select id="select-option" onchange="sortProducts(products)">
                 <option selected disabled>Sort</option>
                 <option id="ASC" value="ASC">From A to Z</option>
                 <option id="DESC" value="DESC">From Z to A</option>
@@ -64,7 +64,7 @@
         </aside>
 
 
-        <div id="product-container">
+        <div class="product-container">
             <ul id="product-list"></ul>
         </div>
 
@@ -72,7 +72,6 @@
 
 
     <footer class="footer">
-
         <div class="footer-links">
             <a target="_blank" rel="noopener noreferrer" href="https://github.com/krolikowskaaleksandra"
                 class="fa fa-github"></a>
@@ -83,7 +82,6 @@
         <div class="footer-bottom">
             <span>© 2022 Made by Aleksandra Królikowska</span>
         </div>
-
     </footer>
 
 
