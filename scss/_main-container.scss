@@ -81,6 +81,14 @@
                         object-position: center;
                     }
 
+
+                    .product-image:hover {
+                        transform: scale(1.1);
+                        transition: .1s ease-in-out;
+                        cursor: pointer;
+                        opacity: .8;
+                    }
+
                     .product-description {
                         margin-top: 20px;
                         font-size: 15px;
