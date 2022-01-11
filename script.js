@@ -108,16 +108,19 @@
                         let productData = document.createElement("div");
                         let productImage = document.createElement("img");
                         let productDescription = document.createElement("div");
+                        let addToBasketButton = document.createElement("button");
                         productImage.src = image;
                         productDescription.innerText = name + " " + zloty.format(price);
                         productList.appendChild(product);
                         product.appendChild(productData);
                         productData.appendChild(productImage);
                         productData.appendChild(productDescription);
+                        product.appendChild(addToBasketButton);
                         product.classList.add("product")
                         productData.classList.add("product-data")
                         productImage.classList.add("product-image")
                         productDescription.classList.add("product-description")
+                        addToBasketButton.classList.add("product-basket")
                         sessionStorage.removeItem('category');
 
 
