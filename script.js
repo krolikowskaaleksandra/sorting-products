@@ -111,6 +111,7 @@
                         let addToBasketButton = document.createElement("button");
                         productImage.src = image;
                         productDescription.innerText = name + " " + zloty.format(price);
+                        addToBasketButton.innerText = "Add to basket";
                         productList.appendChild(product);
                         product.appendChild(productData);
                         productData.appendChild(productImage);

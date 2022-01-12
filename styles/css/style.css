@@ -417,7 +417,7 @@ textarea {
   .header-main .login-container .login-list li:not(:last-child) {
     margin-right: 15px; }
   .header-main .login-container .login-list li:hover {
-    color: #f68fc6;
+    color: #f89fcf;
     cursor: pointer; }
 
 .header-main .logo-container {
@@ -441,7 +441,7 @@ textarea {
     font-size: 20px;
     font-family: 'Roboto', sans-serif; }
     .header-main .navigation-container .navigation-list li:hover {
-      color: #f68fc6;
+      color: #f89fcf;
       cursor: pointer; }
     .header-main .navigation-container .navigation-list li:not(:last-child) {
       margin-right: 10px; }
@@ -476,7 +476,7 @@ textarea {
         .main-container .category-container .category-list li:first-child {
           padding-top: 0px; }
         .main-container .category-container .category-list li:hover {
-          color: #f68fc6;
+          color: #f89fcf;
           cursor: pointer; }
   .main-container .product-container #product-list {
     justify-content: center;
@@ -485,7 +485,7 @@ textarea {
     display: grid;
     grid-template-columns: repeat(3, minmax(250px, 250px));
     column-gap: 30px;
-    row-gap: 90px; }
+    row-gap: 100px; }
     .main-container .product-container #product-list .product {
       list-style-type: none;
       height: 300px; }
@@ -509,7 +509,16 @@ textarea {
       .main-container .product-container #product-list .product .product-basket {
         width: 100%;
         height: 30px;
-        margin-top: 60px; }
+        margin-top: 60px;
+        color: #ffffff;
+        background-color: #f89fcf;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        letter-spacing: 1px;
+        border-width: 0;
+        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; }
+        .main-container .product-container #product-list .product .product-basket:hover {
+          opacity: .9; }
 
 .footer {
   max-width: 100%;
