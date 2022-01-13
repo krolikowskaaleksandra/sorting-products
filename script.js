@@ -108,20 +108,20 @@
                         let productData = document.createElement("div");
                         let productImage = document.createElement("img");
                         let productDescription = document.createElement("div");
-                        let addToBasketButton = document.createElement("button");
+                        let addToCartButton = document.createElement("button");
                         productImage.src = image;
                         productDescription.innerText = name + " " + zloty.format(price);
-                        addToBasketButton.innerText = "Add to basket";
+                        addToCartButton.innerText = "Add to cart";
                         productList.appendChild(product);
                         product.appendChild(productData);
                         productData.appendChild(productImage);
                         productData.appendChild(productDescription);
-                        product.appendChild(addToBasketButton);
+                        product.appendChild(addToCartButton);
                         product.classList.add("product")
                         productData.classList.add("product-data")
                         productImage.classList.add("product-image")
                         productDescription.classList.add("product-description")
-                        addToBasketButton.classList.add("product-basket")
+                        addToCartButton.classList.add("product-cart")
                         sessionStorage.removeItem('category');
 
 
@@ -329,4 +329,26 @@
                                 }
                         }
                 }
+        }
+
+
+
+        //add products to the cart
+        let carts = document.querySelectorAll(".product-cart")
+
+        for (let i = 0; i < carts.length; i++) {
+                carts[i].addEventListener("click", () => {
+                        cartNumbers();
+                })
+        }
+
+        const cartNumbers = () => {
+                let productNumbers = localStorage.getItem("cartNumbers");
+                productNumbers = parseInt(productNumbers);
+                if (productNumbers) {
+                        localStorage.setItem("cartNumbers", productNumbers + 1);
+                } else {
+                        localStorage.setItem("cartNumbers", 1);
+                }
+
         }

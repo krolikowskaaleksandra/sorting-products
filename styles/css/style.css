@@ -411,8 +411,8 @@ textarea {
   justify-content: flex-end;
   list-style: none;
   height: 50px;
-  padding-right: 45px;
-  font-size: 15px;
+  margin-right: 55px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif; }
   .header-main .login-container .login-list li:not(:last-child) {
     margin-right: 15px; }
@@ -506,7 +506,7 @@ textarea {
           font-size: 15px;
           font-family: 'Roboto', sans-serif;
           letter-spacing: 1px; }
-      .main-container .product-container #product-list .product .product-basket {
+      .main-container .product-container #product-list .product .product-cart {
         width: 100%;
         height: 30px;
         margin-top: 60px;
@@ -517,13 +517,13 @@ textarea {
         letter-spacing: 1px;
         border-width: 0;
         box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; }
-        .main-container .product-container #product-list .product .product-basket:hover {
+        .main-container .product-container #product-list .product .product-cart:hover {
           opacity: .9; }
 
 .footer {
   max-width: 100%;
   height: 180px;
-  margin-top: 100px;
+  margin-top: 120px;
   background-color: #000000;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
