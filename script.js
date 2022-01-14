@@ -121,7 +121,7 @@
                         productData.classList.add("product-data")
                         productImage.classList.add("product-image")
                         productDescription.classList.add("product-description")
-                        addToCartButton.classList.add("product-cart")
+                        addToCartButton.classList.add("add-product-to-cart")
                         sessionStorage.removeItem('category');
 
 
@@ -334,7 +334,7 @@
 
 
         //add products to the cart
-        let carts = document.querySelectorAll(".product-cart")
+        let carts = document.querySelectorAll(".add-product-to-cart")
 
         for (let i = 0; i < carts.length; i++) {
                 carts[i].addEventListener("click", () => {
@@ -342,13 +342,25 @@
                 })
         }
 
+        const onLoadCartNumbers = () => {
+                let productNumbers = localStorage.getItem("cartNumbers");
+                if (productNumbers) {
+                        document.querySelector(".product-cart span").textContent = productNumbers;
+
+                }
+        }
+
         const cartNumbers = () => {
                 let productNumbers = localStorage.getItem("cartNumbers");
                 productNumbers = parseInt(productNumbers);
                 if (productNumbers) {
                         localStorage.setItem("cartNumbers", productNumbers + 1);
+                        document.querySelector(".product-cart span").textContent = productNumbers + 1;
                 } else {
                         localStorage.setItem("cartNumbers", 1);
+                        document.querySelector(".product-cart span").textContent = 1;
                 }
 
         }
+
+        onLoadCartNumbers();

@@ -506,7 +506,7 @@ textarea {
           font-size: 15px;
           font-family: 'Roboto', sans-serif;
           letter-spacing: 1px; }
-      .main-container .product-container #product-list .product .product-cart {
+      .main-container .product-container #product-list .product .add-product-to-cart {
         width: 100%;
         height: 30px;
         margin-top: 60px;
@@ -517,7 +517,7 @@ textarea {
         letter-spacing: 1px;
         border-width: 0;
         box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; }
-        .main-container .product-container #product-list .product .product-cart:hover {
+        .main-container .product-container #product-list .product .add-product-to-cart:hover {
           opacity: .9; }
 
 .footer {
