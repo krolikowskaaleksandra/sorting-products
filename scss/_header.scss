@@ -2,22 +2,26 @@
 
 
 .header-main {
-    .login-container {
 
-        .login-list {
+    .header-right {
+        width: 100%;
+        // border: 1px solid #ff0000;
+
+        .login-cart-container {
+            // border: 1px solid black;
             display: flex;
             align-items: center;
             justify-content: flex-end;
             list-style: none;
-            height: 50px;
-            margin-right: 55px;
+            height: 60px;
             font-size: 18px;
             font-family: 'Roboto', sans-serif;
+            margin-right: 30px;
+
 
             li {
-
                 &:not(:last-child) {
-                    margin-right: 15px;
+                    margin-right: 25px;
                 }
 
                 &:hover {
@@ -27,6 +31,7 @@
             }
         }
     }
+
 
     .logo-container {
         // border: 1px solid red;

@@ -405,20 +405,22 @@ textarea {
   color: #000;
   padding: 0.2em 0; }
 
-.header-main .login-container .login-list {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  list-style: none;
-  height: 50px;
-  margin-right: 55px;
-  font-size: 18px;
-  font-family: 'Roboto', sans-serif; }
-  .header-main .login-container .login-list li:not(:last-child) {
-    margin-right: 15px; }
-  .header-main .login-container .login-list li:hover {
-    color: #f89fcf;
-    cursor: pointer; }
+.header-main .header-right {
+  width: 100%; }
+  .header-main .header-right .login-cart-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    height: 60px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 30px; }
+    .header-main .header-right .login-cart-container li:not(:last-child) {
+      margin-right: 25px; }
+    .header-main .header-right .login-cart-container li:hover {
+      color: #f89fcf;
+      cursor: pointer; }
 
 .header-main .logo-container {
   height: 100px;

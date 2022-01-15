@@ -9,6 +9,7 @@
                         price: 35,
                         image: "images/facialToner2.png",
                         category: "facialToner",
+
                 },
                 {
                         name: "Regulating facial toner",
@@ -50,7 +51,7 @@
                         name: "Night cream",
                         price: 50,
                         image: "images/cream3.png",
-                        category: "cream",
+                        category: "cream"
                 },
                 {
                         name: "Gentle face wash",
@@ -332,7 +333,6 @@
         }
 
 
-
         //add products to the cart
         let carts = document.querySelectorAll(".add-product-to-cart")
 
@@ -343,24 +343,28 @@
         }
 
         const onLoadCartNumbers = () => {
-                let productNumbers = localStorage.getItem("cartNumbers");
+                let productNumbers = sessionStorage.getItem("cartNumbers");
                 if (productNumbers) {
-                        document.querySelector(".product-cart span").textContent = productNumbers;
-
+                        document.querySelector(".cart-products-count").textContent = productNumbers;
                 }
         }
 
         const cartNumbers = () => {
-                let productNumbers = localStorage.getItem("cartNumbers");
+                let productNumbers = sessionStorage.getItem("cartNumbers");
                 productNumbers = parseInt(productNumbers);
                 if (productNumbers) {
-                        localStorage.setItem("cartNumbers", productNumbers + 1);
-                        document.querySelector(".product-cart span").textContent = productNumbers + 1;
+                        sessionStorage.setItem("cartNumbers", productNumbers + 1);
+                        document.querySelector(".cart-products-count").textContent = productNumbers + 1;
                 } else {
-                        localStorage.setItem("cartNumbers", 1);
-                        document.querySelector(".product-cart span").textContent = 1;
+                        sessionStorage.setItem("cartNumbers", 1);
+                        document.querySelector(".cart-products-count").textContent = "1";
                 }
-
         }
 
         onLoadCartNumbers();
+
+
+
+        // TO DO:
+        // 1. Po sortowaniu od a do z itd nie dodają sie produkty do koszyka
+        // 2. dodawanie konkretnego produktu do koszyka (odcinek 3/5 youtube)
