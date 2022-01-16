@@ -3,12 +3,14 @@
                         price: 29,
                         image: "images/facialToner1.png",
                         category: "facialToner",
+                        inCart: 0,
                 },
                 {
                         name: "Antibacterial facial toner",
                         price: 35,
                         image: "images/facialToner2.png",
                         category: "facialToner",
+                        inCart: 0,
 
                 },
                 {
@@ -16,78 +18,91 @@
                         price: 22,
                         image: "images/facialToner3.png",
                         category: "facialToner",
+                        inCart: 0,
                 },
                 {
                         name: "Anti wrinkle serum",
                         price: 49,
                         image: "images/serum1.png",
                         category: "serum",
+                        inCart: 0,
                 },
                 {
                         name: "Argan oil serum",
                         price: 39,
                         image: "images/serum2.png",
                         category: "serum",
+                        inCart: 0,
                 },
                 {
                         name: "Night face serum",
                         price: 36,
                         image: "images/serum3.png",
                         category: "serum",
+                        inCart: 0,
                 },
                 {
                         name: "Day cream",
                         price: 49,
                         image: "images/cream1.png",
                         category: "cream",
+                        inCart: 0,
                 },
                 {
                         name: "Anti wrinkle cream",
                         price: 59,
                         image: "images/cream2.png",
                         category: "cream",
+                        inCart: 0,
                 },
                 {
                         name: "Night cream",
                         price: 50,
                         image: "images/cream3.png",
-                        category: "cream"
+                        category: "cream",
+                        inCart: 0,
                 },
                 {
                         name: "Gentle face wash",
                         price: 39,
                         image: "images/faceWash1.png",
                         category: "faceWash",
+                        inCart: 0,
                 },
                 {
                         name: "Organic face wash",
                         price: 30,
                         image: "images/faceWash2.png",
                         category: "faceWash",
+                        inCart: 0,
                 },
                 {
                         name: "Detox face wash",
                         price: 38,
                         image: "images/faceWash3.png",
                         category: "faceWash",
+                        inCart: 0,
                 },
                 {
                         name: "Strawberry face scrub",
                         price: 24,
                         image: "images/faceScrub1.png",
                         category: "faceScrub",
+                        inCart: 0,
                 },
                 {
                         name: "Smoothing face scrub",
                         price: 29,
                         image: "images/faceScrub2.png",
                         category: "faceScrub",
+                        inCart: 0,
                 },
                 {
                         name: "Hydrating face scrub",
                         price: 34,
                         image: "images/faceScrub3.png",
                         category: "faceScrub",
+                        inCart: 0,
                 },
         ]
 
@@ -338,7 +353,7 @@
 
         for (let i = 0; i < carts.length; i++) {
                 carts[i].addEventListener("click", () => {
-                        cartNumbers();
+                        cartNumbers(products[i]);
                 })
         }
 
@@ -349,7 +364,8 @@
                 }
         }
 
-        const cartNumbers = () => {
+        const cartNumbers = (product) => {
+
                 let productNumbers = sessionStorage.getItem("cartNumbers");
                 productNumbers = parseInt(productNumbers);
                 if (productNumbers) {
@@ -359,6 +375,30 @@
                         sessionStorage.setItem("cartNumbers", 1);
                         document.querySelector(".cart-products-count").textContent = "1";
                 }
+                setItems(product);
+        }
+
+        const setItems = (product) => {
+                let cartItems = sessionStorage.getItem("productsInCart");
+                cartItems = JSON.parse(cartItems);
+
+                if (cartItems != null) {
+                        if (cartItems[product.name] == undefined) {
+                                cartItems = {
+                                        ...cartItems,
+                                        [product.name]: product
+                                }
+                        }
+                        cartItems[product.name].inCart += 1;
+                } else {
+                        product.inCart = 1;
+                        cartItems = {
+                                [product.name]: product
+                        }
+
+                }
+
+                sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
         }
 
         onLoadCartNumbers();
