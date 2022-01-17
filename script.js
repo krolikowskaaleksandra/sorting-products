@@ -349,18 +349,21 @@
 
 
         //add products to the cart
-        let carts = document.querySelectorAll(".add-product-to-cart")
+        let cart = document.querySelectorAll(".add-product-to-cart")
+        let cartProductCount = document.querySelector(".cart-product-count")
 
-        for (let i = 0; i < carts.length; i++) {
-                carts[i].addEventListener("click", () => {
+
+        for (let i = 0; i < cart.length; i++) {
+                cart[i].addEventListener("click", () => {
                         cartNumbers(products[i]);
+                        totalCost(products[i])
                 })
         }
 
         const onLoadCartNumbers = () => {
                 let productNumbers = sessionStorage.getItem("cartNumbers");
                 if (productNumbers) {
-                        document.querySelector(".cart-products-count").textContent = productNumbers;
+                        cartProductCount.textContent = productNumbers;
                 }
         }
 
@@ -370,10 +373,10 @@
                 productNumbers = parseInt(productNumbers);
                 if (productNumbers) {
                         sessionStorage.setItem("cartNumbers", productNumbers + 1);
-                        document.querySelector(".cart-products-count").textContent = productNumbers + 1;
+                        cartProductCount.textContent = productNumbers + 1;
                 } else {
                         sessionStorage.setItem("cartNumbers", 1);
-                        document.querySelector(".cart-products-count").textContent = "1";
+                        cartProductCount.textContent = "1";
                 }
                 setItems(product);
         }
@@ -395,10 +398,19 @@
                         cartItems = {
                                 [product.name]: product
                         }
-
                 }
 
                 sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
+        }
+
+        const totalCost = (product) => {
+                let cartCost = sessionStorage.getItem("totalCost");
+                if (cartCost != null) {
+                        cartCost = parseInt(cartCost);
+                        sessionStorage.setItem("totalCost", cartCost + product.price);
+                } else {
+                        sessionStorage.setItem("totalCost", product.price);
+                }
         }
 
         onLoadCartNumbers();
@@ -407,4 +419,5 @@
 
         // TO DO:
         // 1. Po sortowaniu od a do z itd nie dodają sie produkty do koszyka
-        // 2. dodawanie konkretnego produktu do koszyka (odcinek 3/5 youtube)
+        // 1. Po wybrabiu kategorii nie dodają sie produkty do koszyk
+        // 2. dodawanie konkretnego produktu do koszyka (odcinek 4/5 youtube)
