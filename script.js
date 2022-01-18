@@ -1,4 +1,25 @@
         products = [{
+                        name: "Day cream",
+                        price: 49,
+                        image: "images/cream1.png",
+                        category: "cream",
+                        inCart: 0,
+                },
+                {
+                        name: "Anti wrinkle cream",
+                        price: 59,
+                        image: "images/cream2.png",
+                        category: "cream",
+                        inCart: 0,
+                },
+                {
+                        name: "Night cream",
+                        price: 50,
+                        image: "images/cream3.png",
+                        category: "cream",
+                        inCart: 0,
+                },
+                {
                         name: "Normalizing facial toner",
                         price: 29,
                         image: "images/facialToner1.png",
@@ -41,27 +62,7 @@
                         category: "serum",
                         inCart: 0,
                 },
-                {
-                        name: "Day cream",
-                        price: 49,
-                        image: "images/cream1.png",
-                        category: "cream",
-                        inCart: 0,
-                },
-                {
-                        name: "Anti wrinkle cream",
-                        price: 59,
-                        image: "images/cream2.png",
-                        category: "cream",
-                        inCart: 0,
-                },
-                {
-                        name: "Night cream",
-                        price: 50,
-                        image: "images/cream3.png",
-                        category: "cream",
-                        inCart: 0,
-                },
+
                 {
                         name: "Gentle face wash",
                         price: 39,
@@ -160,7 +161,8 @@
                 const allProducts = products.filter(findAllProducts);
                 productList.innerText = "";
                 displayProducts(allProducts);
-                sessionStorage.setItem("category", "")
+                sessionStorage.setItem("category", "");
+                addingToCart();
         }
 
         const displayFacialTonerCategory = () => {
@@ -349,75 +351,72 @@
 
 
         //add products to the cart
-        let cart = document.querySelectorAll(".add-product-to-cart")
-        let cartProductCount = document.querySelector(".cart-product-count")
+        const addingToCart = () => {
+                let cart = document.querySelectorAll(".add-product-to-cart")
+                let cartProductCount = document.querySelector(".cart-product-count")
 
 
-        for (let i = 0; i < cart.length; i++) {
-                cart[i].addEventListener("click", () => {
-                        cartNumbers(products[i]);
-                        totalCost(products[i])
-                })
-        }
-
-        const onLoadCartNumbers = () => {
-                let productNumbers = sessionStorage.getItem("cartNumbers");
-                if (productNumbers) {
-                        cartProductCount.textContent = productNumbers;
+                for (let i = 0; i < cart.length; i++) {
+                        cart[i].addEventListener("click", () => {
+                                cartNumbers(products[i]);
+                                totalCost(products[i]);
+                        })
                 }
-        }
 
-        const cartNumbers = (product) => {
-
-                let productNumbers = sessionStorage.getItem("cartNumbers");
-                productNumbers = parseInt(productNumbers);
-                if (productNumbers) {
-                        sessionStorage.setItem("cartNumbers", productNumbers + 1);
-                        cartProductCount.textContent = productNumbers + 1;
-                } else {
-                        sessionStorage.setItem("cartNumbers", 1);
-                        cartProductCount.textContent = "1";
+                const onLoadCartNumbers = () => {
+                        let productNumbers = sessionStorage.getItem("cartNumbers");
+                        if (productNumbers) {
+                                cartProductCount.textContent = productNumbers;
+                        }
                 }
-                setItems(product);
-        }
 
-        const setItems = (product) => {
-                let cartItems = sessionStorage.getItem("productsInCart");
-                cartItems = JSON.parse(cartItems);
+                const cartNumbers = (product) => {
+                        let productNumbers = sessionStorage.getItem("cartNumbers");
+                        productNumbers = parseInt(productNumbers);
+                        if (productNumbers) {
+                                sessionStorage.setItem("cartNumbers", productNumbers + 1);
+                                cartProductCount.textContent = productNumbers + 1;
+                        } else {
+                                sessionStorage.setItem("cartNumbers", 1);
+                                cartProductCount.textContent = "1";
+                        }
+                        setItems(product);
+                }
 
-                if (cartItems != null) {
-                        if (cartItems[product.name] == undefined) {
+                const setItems = (product) => {
+                        let cartItems = sessionStorage.getItem("productsInCart");
+                        cartItems = JSON.parse(cartItems);
+
+                        if (cartItems != null) {
+                                if (cartItems[product.name] == undefined) {
+                                        cartItems = {
+                                                ...cartItems,
+                                                [product.name]: product
+                                        }
+                                }
+                                cartItems[product.name].inCart += 1;
+                        } else {
+                                product.inCart = 1;
                                 cartItems = {
-                                        ...cartItems,
                                         [product.name]: product
                                 }
                         }
-                        cartItems[product.name].inCart += 1;
-                } else {
-                        product.inCart = 1;
-                        cartItems = {
-                                [product.name]: product
+                        sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
+                }
+
+                const totalCost = (product) => {
+                        let cartCost = sessionStorage.getItem("totalCost");
+                        if (cartCost != null) {
+                                cartCost = parseInt(cartCost);
+                                sessionStorage.setItem("totalCost", cartCost + product.price);
+                        } else {
+                                sessionStorage.setItem("totalCost", product.price);
                         }
                 }
-
-                sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
+                onLoadCartNumbers();
         }
-
-        const totalCost = (product) => {
-                let cartCost = sessionStorage.getItem("totalCost");
-                if (cartCost != null) {
-                        cartCost = parseInt(cartCost);
-                        sessionStorage.setItem("totalCost", cartCost + product.price);
-                } else {
-                        sessionStorage.setItem("totalCost", product.price);
-                }
-        }
-
-        onLoadCartNumbers();
-
-
 
         // TO DO:
         // 1. Po sortowaniu od a do z itd nie dodają sie produkty do koszyka
         // 1. Po wybrabiu kategorii nie dodają sie produkty do koszyk
-        // 2. dodawanie konkretnego produktu do koszyka (odcinek 4/5 youtube)
+        // 2. dodawanie konkretnego produktu do koszyka (odcinek 5/5 youtube)
