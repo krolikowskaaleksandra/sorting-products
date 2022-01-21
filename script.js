@@ -114,20 +114,26 @@
                 currency: "PLN",
         });
 
+        const addProductToCart = (product) => {
+                let addToCartButton = document.querySelectorAll(".add-product-to-cart")
+                addToCartButton.forEach((item) => {
+                        item.addEventListener("click", () => {
+                                cartNumbers(product)
+                                totalCost(product);
+                        })
+                })
+        }
+
 
         const displayProducts = (products) => {
-                products.forEach(({
-                        name,
-                        price,
-                        image,
-                }) => {
+                products.forEach((item) => {
                         let product = document.createElement("li");
                         let productData = document.createElement("div");
                         let productImage = document.createElement("img");
                         let productDescription = document.createElement("div");
                         let addToCartButton = document.createElement("button");
-                        productImage.src = image;
-                        productDescription.innerText = name + " " + zloty.format(price);
+                        productImage.src = item.image;
+                        productDescription.innerText = item.name + " " + zloty.format(item.price);
                         addToCartButton.innerText = "Add to cart";
                         productList.appendChild(product);
                         product.appendChild(productData);
@@ -140,10 +146,7 @@
                         productDescription.classList.add("product-description")
                         addToCartButton.classList.add("add-product-to-cart")
                         sessionStorage.removeItem('category');
-                        addToCartButton.addEventListener("click", () => {
-                                cartNumbers(products);
-                                totalCost(products);
-                        })
+                        addProductToCart(item);
 
                 })
         }
@@ -164,7 +167,9 @@
                 const allProducts = products.filter(findAllProducts);
                 productList.innerText = "";
                 displayProducts(allProducts);
-                sessionStorage.setItem("category", "");
+                addProductToCart();
+                sessionStorage.removeItem("category");
+
         }
 
         const displayFacialTonerCategory = () => {
@@ -174,6 +179,8 @@
                 const facialTonerProducts = products.filter(findFacialTonerProducts);
                 productList.innerText = "";
                 displayProducts(facialTonerProducts);
+                addProductToCart();
+
                 sessionStorage.setItem("category", "facialToner")
         }
 
@@ -185,6 +192,7 @@
                 const serumProducts = products.filter(findSerumProducts);
                 productList.innerText = "";
                 displayProducts(serumProducts);
+                addProductToCart();
                 sessionStorage.setItem("category", "serum")
         }
 
@@ -195,6 +203,7 @@
                 const creamProducts = products.filter(findCreamProducts);
                 productList.innerText = "";
                 displayProducts(creamProducts);
+                addProductToCart();
                 sessionStorage.setItem("category", "cream")
         }
 
@@ -205,6 +214,7 @@
                 const faceWashProducts = products.filter(findFaceWashProducts);
                 productList.innerText = "";
                 displayProducts(faceWashProducts);
+                addProductToCart();
                 sessionStorage.setItem("category", "faceWash")
         }
 
@@ -215,6 +225,7 @@
                 const faceScrubProducts = products.filter(findFaceScrubProducts);
                 productList.innerText = "";
                 displayProducts(faceScrubProducts);
+                addProductToCart();
                 sessionStorage.setItem("category", "faceScrub")
         }
 
@@ -235,26 +246,32 @@
                         switch (sessionStorage.getItem('category')) {
                                 case "facialToner": {
                                         displayFacialTonerCategory();
+                                        addProductToCart
                                         break;
                                 }
                                 case "serum": {
                                         displaySerumCategory();
+                                        addProductToCart
                                         break;
                                 }
                                 case "cream": {
                                         displayCreamCategory();
+                                        addProductToCart
                                         break;
                                 }
                                 case "faceWash": {
                                         displayFaceWashCategory();
+                                        addProductToCart
                                         break;
                                 }
                                 case "faceScrub": {
                                         displayFaceScrubCategory();
+                                        addProductToCart
                                         break;
                                 }
                                 default: {
                                         displayProducts(products);
+                                        addProductToCart
                                         break;
                                 }
                         }
@@ -389,7 +406,7 @@
                 let cartItems = sessionStorage.getItem("productsInCart");
                 cartItems = JSON.parse(cartItems);
 
-                if (cartItems != null) {
+                if (cartItems) {
                         if (cartItems[product.name] == undefined) {
                                 cartItems = {
                                         ...cartItems,
@@ -416,8 +433,3 @@
                 }
         }
         onLoadCartNumbers();
-
-
-        // TO DO:
-        // 1. Po sortowaniu od a do z itd nie dodają sie produkty do koszyka
-        // 1. Po wybrabiu kategorii nie dodają sie produkty do koszyk
