@@ -146,11 +146,14 @@
                         productDescription.classList.add("product-description")
                         addToCartButton.classList.add("add-product-to-cart")
                         sessionStorage.removeItem('category');
-                        addProductToCart(item);
 
                 })
         }
         displayProducts(products);
+        addProductToCart(products);
+
+
+
 
         const allProducts = document.getElementById("allProducts");
         const facialToner = document.getElementById("facialToner");
@@ -167,8 +170,8 @@
                 const allProducts = products.filter(findAllProducts);
                 productList.innerText = "";
                 displayProducts(allProducts);
-                addProductToCart();
                 sessionStorage.removeItem("category");
+                addProductToCart(products);
 
         }
 
@@ -179,9 +182,8 @@
                 const facialTonerProducts = products.filter(findFacialTonerProducts);
                 productList.innerText = "";
                 displayProducts(facialTonerProducts);
-                addProductToCart();
-
                 sessionStorage.setItem("category", "facialToner")
+                addProductToCart(products);
         }
 
 
@@ -192,8 +194,8 @@
                 const serumProducts = products.filter(findSerumProducts);
                 productList.innerText = "";
                 displayProducts(serumProducts);
-                addProductToCart();
                 sessionStorage.setItem("category", "serum")
+                addProductToCart(products);
         }
 
         const displayCreamCategory = () => {
@@ -203,8 +205,8 @@
                 const creamProducts = products.filter(findCreamProducts);
                 productList.innerText = "";
                 displayProducts(creamProducts);
-                addProductToCart();
                 sessionStorage.setItem("category", "cream")
+                addProductToCart(products);
         }
 
         const displayFaceWashCategory = () => {
@@ -214,8 +216,8 @@
                 const faceWashProducts = products.filter(findFaceWashProducts);
                 productList.innerText = "";
                 displayProducts(faceWashProducts);
-                addProductToCart();
                 sessionStorage.setItem("category", "faceWash")
+                addProductToCart(products);
         }
 
         const displayFaceScrubCategory = () => {
@@ -225,8 +227,8 @@
                 const faceScrubProducts = products.filter(findFaceScrubProducts);
                 productList.innerText = "";
                 displayProducts(faceScrubProducts);
-                addProductToCart();
                 sessionStorage.setItem("category", "faceScrub")
+                addProductToCart(products);
         }
 
 
@@ -246,32 +248,33 @@
                         switch (sessionStorage.getItem('category')) {
                                 case "facialToner": {
                                         displayFacialTonerCategory();
-                                        addProductToCart
+                                        addProductToCart(products);
                                         break;
                                 }
                                 case "serum": {
                                         displaySerumCategory();
-                                        addProductToCart
+                                        addProductToCart(products);
+
                                         break;
                                 }
                                 case "cream": {
                                         displayCreamCategory();
-                                        addProductToCart
+                                        addProductToCart(products);
                                         break;
                                 }
                                 case "faceWash": {
                                         displayFaceWashCategory();
-                                        addProductToCart
+                                        addProductToCart(products);
                                         break;
                                 }
                                 case "faceScrub": {
                                         displayFaceScrubCategory();
-                                        addProductToCart
+                                        addProductToCart(products);
                                         break;
                                 }
                                 default: {
                                         displayProducts(products);
-                                        addProductToCart
+                                        addProductToCart(products);
                                         break;
                                 }
                         }
@@ -371,15 +374,7 @@
 
 
         //add products to the cart
-        // let cart = document.querySelectorAll(".add-product-to-cart")
         let cartProductCount = document.querySelector(".cart-product-count")
-
-        // for (let i = 0; i < cart.length; i++) {
-        //         cart[i].addEventListener("click", () => {
-        //                 cartNumbers(products[i]);
-        //                 totalCost(products[i]);
-        //         })
-        // }
 
         const onLoadCartNumbers = () => {
                 let productNumbers = sessionStorage.getItem("cartNumbers");
