@@ -116,18 +116,14 @@
 
 
         const displayProducts = (products) => {
-                products.forEach(({
-                        name,
-                        price,
-                        image,
-                }) => {
+                products.forEach((item) => {
                         let product = document.createElement("li");
                         let productData = document.createElement("div");
                         let productImage = document.createElement("img");
                         let productDescription = document.createElement("div");
                         let addToCartButton = document.createElement("button");
-                        productImage.src = image;
-                        productDescription.innerText = name + " " + zloty.format(price);
+                        productImage.src = item.image;
+                        productDescription.innerText = item.name + " " + zloty.format(item.price);
                         addToCartButton.innerText = "Add to cart";
                         productList.appendChild(product);
                         product.appendChild(productData);
@@ -140,14 +136,11 @@
                         productDescription.classList.add("product-description")
                         addToCartButton.classList.add("add-product-to-cart")
                         sessionStorage.removeItem('category');
-                        addToCartButton.addEventListener("click", () => {
-                                cartNumbers(products);
-                                totalCost(products);
-                        })
-
                 })
         }
+
         displayProducts(products);
+
 
         const allProducts = document.getElementById("allProducts");
         const facialToner = document.getElementById("facialToner");
@@ -165,6 +158,7 @@
                 productList.innerText = "";
                 displayProducts(allProducts);
                 sessionStorage.setItem("category", "");
+
         }
 
         const displayFacialTonerCategory = () => {
@@ -174,9 +168,10 @@
                 const facialTonerProducts = products.filter(findFacialTonerProducts);
                 productList.innerText = "";
                 displayProducts(facialTonerProducts);
-                sessionStorage.setItem("category", "facialToner")
-        }
+                sessionStorage.setItem("category", "facialToner");
 
+
+        }
 
         const displaySerumCategory = () => {
                 const findSerumProducts = (product) => {
@@ -185,7 +180,8 @@
                 const serumProducts = products.filter(findSerumProducts);
                 productList.innerText = "";
                 displayProducts(serumProducts);
-                sessionStorage.setItem("category", "serum")
+                sessionStorage.setItem("category", "serum");
+
         }
 
         const displayCreamCategory = () => {
@@ -195,7 +191,8 @@
                 const creamProducts = products.filter(findCreamProducts);
                 productList.innerText = "";
                 displayProducts(creamProducts);
-                sessionStorage.setItem("category", "cream")
+                sessionStorage.setItem("category", "cream");
+
         }
 
         const displayFaceWashCategory = () => {
@@ -205,7 +202,8 @@
                 const faceWashProducts = products.filter(findFaceWashProducts);
                 productList.innerText = "";
                 displayProducts(faceWashProducts);
-                sessionStorage.setItem("category", "faceWash")
+                sessionStorage.setItem("category", "faceWash");
+
         }
 
         const displayFaceScrubCategory = () => {
@@ -215,7 +213,8 @@
                 const faceScrubProducts = products.filter(findFaceScrubProducts);
                 productList.innerText = "";
                 displayProducts(faceScrubProducts);
-                sessionStorage.setItem("category", "faceScrub")
+                sessionStorage.setItem("category", "faceScrub");
+
         }
 
 
@@ -352,17 +351,16 @@
                 }
         }
 
-
         //add products to the cart
-        // let cart = document.querySelectorAll(".add-product-to-cart")
+        let cart = document.querySelectorAll(".add-product-to-cart")
         let cartProductCount = document.querySelector(".cart-product-count")
+        for (let i = 0; i < cart.length; i++) {
+                cart[i].addEventListener("click", () => {
+                        cartNumbers(products[i]);
+                        totalCost(products[i]);
+                })
+        }
 
-        // for (let i = 0; i < cart.length; i++) {
-        //         cart[i].addEventListener("click", () => {
-        //                 cartNumbers(products[i]);
-        //                 totalCost(products[i]);
-        //         })
-        // }
 
         const onLoadCartNumbers = () => {
                 let productNumbers = sessionStorage.getItem("cartNumbers");
@@ -416,8 +414,3 @@
                 }
         }
         onLoadCartNumbers();
-
-
-        // TO DO:
-        // 1. Po sortowaniu od a do z itd nie dodają sie produkty do koszyka
-        // 1. Po wybrabiu kategorii nie dodają sie produkty do koszyk
