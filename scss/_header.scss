@@ -55,6 +55,7 @@
             align-items: center;
             justify-content: center;
             height: 60px;
+            text-decoration: none;
 
             li {
                 flex-direction: row;
@@ -62,13 +63,32 @@
                 font-size: 20px;
                 font-family: 'Roboto', sans-serif;
 
-                &:hover {
-                    color: $pink;
-                    cursor: pointer;
-                }
-
                 &:not(:last-child) {
                     margin-right: 10px;
+                }
+
+                a {
+                    &:link {
+                        text-decoration: none;
+                        color: $black;
+                    }
+
+                    &:visited {
+                        text-decoration: none;
+                        color: $black;
+
+                    }
+
+                    &:active {
+                        text-decoration: none;
+                        color: $black;
+
+                    }
+
+                    &:hover {
+                        color: $pink;
+                        cursor: pointer;
+                    }
                 }
             }
         }

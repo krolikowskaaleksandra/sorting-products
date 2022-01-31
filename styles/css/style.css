@@ -436,17 +436,27 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px; }
+  height: 60px;
+  text-decoration: none; }
   .header-main .navigation-container .navigation-list li {
     flex-direction: row;
     padding: 0 25px;
     font-size: 20px;
     font-family: 'Roboto', sans-serif; }
-    .header-main .navigation-container .navigation-list li:hover {
-      color: #f89fcf;
-      cursor: pointer; }
     .header-main .navigation-container .navigation-list li:not(:last-child) {
       margin-right: 10px; }
+    .header-main .navigation-container .navigation-list li a:link {
+      text-decoration: none;
+      color: #000000; }
+    .header-main .navigation-container .navigation-list li a:visited {
+      text-decoration: none;
+      color: #000000; }
+    .header-main .navigation-container .navigation-list li a:active {
+      text-decoration: none;
+      color: #000000; }
+    .header-main .navigation-container .navigation-list li a:hover {
+      color: #f89fcf;
+      cursor: pointer; }
 
 .main-container {
   max-width: 1280px;
