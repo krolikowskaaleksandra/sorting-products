@@ -565,3 +565,10 @@ textarea {
     margin: auto; }
     .footer .footer-bottom span {
       margin: auto; }
+
+.contact-form {
+  max-width: 800px;
+  min-height: 600px;
+  position: relative;
+  margin: 30px auto 0 auto;
+  border: 1px solid black; }
