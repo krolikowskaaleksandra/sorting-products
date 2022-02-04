@@ -567,8 +567,42 @@ textarea {
       margin: auto; }
 
 .contact-form {
-  max-width: 800px;
-  min-height: 600px;
-  position: relative;
+  max-width: 700px;
+  min-height: 500px;
   margin: 30px auto 0 auto;
-  border: 1px solid black; }
+  border: 1px solid black;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column; }
+  .contact-form h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    margin-top: 50px;
+    margin-bottom: 30px; }
+  .contact-form form {
+    font-size: 15px;
+    width: 400px; }
+    .contact-form form input {
+      font-family: 'Roboto', sans-serif;
+      width: 400px;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: white;
+      border: 2px solid #e8d6e8; }
+    .contact-form form textarea {
+      font-family: 'Roboto', sans-serif;
+      width: 400px;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: white;
+      border: 2px solid #e8d6e8; }
+    .contact-form form button {
+      font-family: 'Roboto', sans-serif;
+      width: 200px;
+      font-size: 15px;
+      padding: 10px 20px;
+      margin-top: 15px;
+      background-color: #e8d6e8;
+      border: none;
+      color: #ffffff; }
