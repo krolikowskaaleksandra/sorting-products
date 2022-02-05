@@ -2,16 +2,17 @@
     max-width: 700px;
     min-height: 500px;
     margin: 30px auto 0 auto;
-    border: 1px solid black;
+    // border: 1px solid black;
     display: flex;
     position: relative;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    margin: 0 auto;
 
     h1 {
         font-family: 'Roboto', sans-serif;
         font-size: 28px;
-        margin-top: 50px;
         margin-bottom: 30px;
     }
 
@@ -19,35 +20,47 @@
         font-size: 15px;
         width: 400px;
 
-
         input {
             font-family: 'Roboto', sans-serif;
-            width: 400px;
             margin-top: 15px;
             padding: 10px;
             background-color: white;
-            border: 2px solid #e8d6e8;
-
+            border: 1px solid $purple;
+            display: flex;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         textarea {
             font-family: 'Roboto', sans-serif;
-            width: 400px;
             margin-top: 15px;
             padding: 10px;
             background-color: white;
-            border: 2px solid #e8d6e8;
+            border: 1px solid $purple;
+            display: flex;
+            width: 100%;
+            box-sizing: border-box;
+
+
         }
 
         button {
             font-family: 'Roboto', sans-serif;
             width: 200px;
             font-size: 15px;
-            padding: 10px 20px;
-            margin-top: 15px;
-            background-color: #e8d6e8;
+            padding: 7px 20px;
+            background-color: $purple;
             border: none;
             color: $white;
+            display: flex;
+            justify-content: center;
+            margin: 20px auto 0;
+
+
+            &:hover {
+                cursor: pointer;
+                opacity: .9;
+            }
         }
     }
 }
