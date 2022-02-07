@@ -40,16 +40,20 @@ function isValid() {
 };
 
 class User {
-    constructor(firstName, lastName, gender, address, country, email, newsletter, question) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.address = address;
-        this.country = country;
+    constructor(name, email, subject, question) {
+        this.name = name;
         this.email = email;
-        this.newsletter = newsletter;
+        this.subject = subject;
         this.question = question;
     }
 };
+
+function sendContact() {
+    if (isValid()) {
+        alert("We received your question")
+    } else {
+        alert("There was an error");
+    }
+}
 
 button.addEventListener("click", sendContact);
