@@ -43,12 +43,12 @@
 
     <main class="contact-form">
         <h1>Contact us</h1>
-        <form onsubmit="return false">
-            <input type="text" placeholder="Enter your name" id="name" />
-            <input type="email" placeholder="Enter your email" id="email" />
-            <input type="text" placeholder="Subject" id="subject" />
-            <textarea id="question" rows="4" placeholder="How can we help?"></textarea>
-            <button>Send</button>
+        <form action="https://formsubmit.co/constact.akrolikowska@gmail.com" method="POST">
+            <input type="text" id="name" placeholder="Enter your name" name="name" required />
+            <input type="email" id="email" placeholder="Enter your email" name="email" required />
+            <input type="text" id="subject" placeholder="Subject" name="subject" required />
+            <textarea id="question" rows="4" placeholder="How can we help?" required></textarea>
+            <button type="submit">Send</button>
         </form>
     </main>
 
