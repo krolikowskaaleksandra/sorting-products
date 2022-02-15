@@ -1,7 +1,9 @@
 <?php
 
-echo "This msg is sent from PHP file";
-
+$name = $_POST["name"];
+$email = $_POST["email"];
+$text = $_POST["text"];
+$question = $_POST["question"];
 
 ?>
 

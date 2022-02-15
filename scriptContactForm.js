@@ -10,5 +10,6 @@ form.onsubmit = (e) => {
             console.log(response);
         }
     }
-    xhr.send();
+    let formData = new FormData(form);
+    xhr.send(formData);
 }
