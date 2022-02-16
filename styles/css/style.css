@@ -601,6 +601,8 @@ textarea {
       display: flex;
       width: 100%;
       box-sizing: border-box; }
+    .contact-form form .button-area {
+      margin: 25px 0; }
     .contact-form form button {
       font-family: 'Roboto', sans-serif;
       width: 200px;

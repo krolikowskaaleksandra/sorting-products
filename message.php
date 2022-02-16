@@ -7,3 +7,8 @@ $question = $_POST["question"];
 
 ?>
 
+if(!empty($email) && !empty($question)){
+
+}else {
+    echo "Email and message field are required!";
+}
