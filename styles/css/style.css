@@ -602,18 +602,22 @@ textarea {
       width: 100%;
       box-sizing: border-box; }
     .contact-form form .button-area {
-      margin: 25px 0; }
-    .contact-form form button {
-      font-family: 'Roboto', sans-serif;
-      width: 200px;
-      font-size: 15px;
-      padding: 7px 20px;
-      background-color: #613461;
-      border: none;
-      color: #ffffff;
+      margin: 25px 0;
       display: flex;
-      justify-content: center;
-      margin: 20px auto 0; }
-      .contact-form form button:hover {
-        cursor: pointer;
-        opacity: .9; }
+      align-items: center; }
+      .contact-form form .button-area button {
+        font-family: 'Roboto', sans-serif;
+        width: 200px;
+        font-size: 15px;
+        padding: 7px 20px;
+        background-color: #613461;
+        border: none;
+        color: #ffffff;
+        border-radius: 2px; }
+        .contact-form form .button-area button:hover {
+          cursor: pointer;
+          opacity: .9; }
+      .contact-form form .button-area span {
+        margin-left: 25px;
+        font-family: 'Roboto', sans-serif;
+        color: #613461; }

@@ -42,27 +42,38 @@
             box-sizing: border-box;
         }
 
+        //nie dzialaja style na localhost!!!
+
         .button-area {
             margin: 25px 0;
-        }
-
-        button {
-            font-family: 'Roboto', sans-serif;
-            width: 200px;
-            font-size: 15px;
-            padding: 7px 20px;
-            background-color: $purple;
-            border: none;
-            color: $white;
             display: flex;
-            justify-content: center;
-            margin: 20px auto 0;
+            align-items: center;
 
+            button {
+                font-family: 'Roboto', sans-serif;
+                width: 200px;
+                font-size: 15px;
+                padding: 7px 20px;
+                background-color: $purple;
+                border: none;
+                color: $white;
+                border-radius: 2px;
 
-            &:hover {
-                cursor: pointer;
-                opacity: .9;
+                &:hover {
+                    cursor: pointer;
+                    opacity: .9;
+                }
             }
+
+            span {
+                margin-left: 25px;
+                font-family: 'Roboto', sans-serif;
+                color: $purple;
+
+            }
+
         }
+
+
     }
 }
