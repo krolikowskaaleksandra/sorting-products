@@ -607,9 +607,9 @@ textarea {
       align-items: center; }
       .contact-form form .button-area button {
         font-family: 'Roboto', sans-serif;
-        width: 200px;
+        width: 150px;
         font-size: 15px;
-        padding: 7px 20px;
+        padding: 7px 18px;
         background-color: #613461;
         border: none;
         color: #ffffff;
@@ -618,6 +618,8 @@ textarea {
           cursor: pointer;
           opacity: .9; }
       .contact-form form .button-area span {
-        margin-left: 25px;
+        margin-left: 20px;
         font-family: 'Roboto', sans-serif;
-        color: #613461; }
+        color: red;
+        display: none;
+        font-size: 14px; }

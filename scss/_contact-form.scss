@@ -42,8 +42,6 @@
             box-sizing: border-box;
         }
 
-        //nie dzialaja style na localhost!!!
-
         .button-area {
             margin: 25px 0;
             display: flex;
@@ -51,9 +49,9 @@
 
             button {
                 font-family: 'Roboto', sans-serif;
-                width: 200px;
+                width: 150px;
                 font-size: 15px;
-                padding: 7px 20px;
+                padding: 7px 18px;
                 background-color: $purple;
                 border: none;
                 color: $white;
@@ -66,14 +64,13 @@
             }
 
             span {
-                margin-left: 25px;
+                margin-left: 20px;
                 font-family: 'Roboto', sans-serif;
-                color: $purple;
+                color: red;
+                display: none;
+                font-size: 14px;
 
             }
-
         }
-
-
     }
 }

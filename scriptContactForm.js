@@ -10,7 +10,14 @@ form.onsubmit = (e) => {
     xhr.onload = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let response = xhr.response;
-            console.log(response);
+            if (responde.indexOf("Email and message field are required!") != -1 || responde.indexOf("Enter a valid email address!") || responde.indexOf("Sorry, failed to send your message!")) {
+                statusTxt.style.color = "red";
+            } else {
+                form.reset();
+                setTimeout(() => {
+                    statusTxt.style.display = "none";
+                }, 3000)
+            }
             statusTxt.innerText = response;
         }
     }
