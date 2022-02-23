@@ -10,8 +10,8 @@ form.onsubmit = (e) => {
     xhr.onload = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let response = xhr.response;
-            if (responde.indexOf("Email and message field are required!") != -1 || responde.indexOf("Enter a valid email address!") || responde.indexOf("Sorry, failed to send your message!")) {
-                statusTxt.style.color = "red";
+            if (response.indexOf("Email and message field are required!") != -1 || response.indexOf("Enter a valid email address!") || response.indexOf("Sorry, failed to send your message!")) {
+
             } else {
                 form.reset();
                 setTimeout(() => {

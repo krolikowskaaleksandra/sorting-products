@@ -618,8 +618,8 @@ textarea {
           cursor: pointer;
           opacity: .9; }
       .contact-form form .button-area span {
+        color: #613461;
         margin-left: 20px;
         font-family: 'Roboto', sans-serif;
-        color: red;
         display: none;
         font-size: 14px; }
