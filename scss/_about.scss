@@ -1,0 +1,12 @@
+@import "_variables.scss";
+
+.container-about {
+    max-width: 1280px;
+    min-height: 800px;
+
+    .myself {
+        max-width: 180px;
+        max-height: 180px;
+        // border: 1px solid black;
+    }
+}

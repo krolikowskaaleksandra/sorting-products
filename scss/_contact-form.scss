@@ -1,8 +1,9 @@
+@import "_variables.scss";
+
 .contact-form {
     max-width: 700px;
     min-height: 500px;
     margin: 30px auto 0 auto;
-    // border: 1px solid black;
     display: flex;
     position: relative;
     align-items: center;
@@ -13,8 +14,22 @@
     h1 {
         font-family: 'Roboto', sans-serif;
         font-size: 28px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+
     }
+
+    h1::after {
+        content: '';
+        height: 1px;
+        width: 85px;
+        background: $grey;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 80px;
+    }
+
+
 
     form {
         font-size: 15px;
@@ -23,39 +38,54 @@
         input {
             font-family: 'Roboto', sans-serif;
             margin-top: 15px;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid $purple;
+            padding: 10px 20px;
+            background-color: $white;
+            border: 1px solid $lightPink;
             display: flex;
             width: 100%;
             box-sizing: border-box;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+
         }
 
         textarea {
             font-family: 'Roboto', sans-serif;
             margin-top: 15px;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid $purple;
+            padding: 10px 20px;
+            background-color: $white;
+            border: 1px solid $lightPink;
             display: flex;
             width: 100%;
             box-sizing: border-box;
+            border-top-left-radius: 17px;
+            border-top-right-radius: 17px;
+            border-bottom-left-radius: 17px;
+            border-bottom-right-radius: 17px;
         }
 
+
+
         .button-area {
-            margin: 25px 0;
+            margin: 30px 0;
             display: flex;
             justify-content: center;
 
             button {
                 font-family: 'Roboto', sans-serif;
-                width: 150px;
+                width: 140px;
+                height: 42px;
                 font-size: 15px;
                 padding: 7px 18px;
-                background-color: $purple;
+                background-color: $pink;
                 border: none;
                 color: $white;
-                border-radius: 2px;
+                border-top-left-radius: 40px;
+                border-top-right-radius: 40px;
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 40px;
                 font-weight: bolder;
 
 
@@ -66,7 +96,7 @@
             }
 
             span {
-                color: $purple;
+                color: $pink;
                 margin-left: 20px;
                 font-family: 'Roboto', sans-serif;
                 display: none;

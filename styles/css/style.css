@@ -419,7 +419,7 @@ textarea {
     .header-main .header-right .login-cart-container li:not(:last-child) {
       margin-right: 25px; }
     .header-main .header-right .login-cart-container li:hover {
-      color: #f89fcf;
+      color: #da86b7;
       cursor: pointer; }
 
 .header-main .logo-container {
@@ -455,7 +455,7 @@ textarea {
       text-decoration: none;
       color: #000000; }
     .header-main .navigation-container .navigation-list li a:hover {
-      color: #f89fcf;
+      color: #da86b7;
       cursor: pointer; }
 
 .main-container {
@@ -488,7 +488,7 @@ textarea {
         .main-container .category-container .category-list li:first-child {
           padding-top: 0px; }
         .main-container .category-container .category-list li:hover {
-          color: #f89fcf;
+          color: #da86b7;
           cursor: pointer; }
   .main-container .product-container #product-list {
     justify-content: center;
@@ -523,7 +523,7 @@ textarea {
         height: 30px;
         margin-top: 60px;
         color: #ffffff;
-        background-color: #f89fcf;
+        background-color: #da86b7;
         font-family: 'Roboto', sans-serif;
         text-align: center;
         letter-spacing: 1px;
@@ -553,7 +553,10 @@ textarea {
     .footer .footer-links .fa {
       font-size: 48px;
       padding: 10px;
-      color: inherit; }
+      color: inherit;
+      text-decoration: none; }
+    .footer .footer-links .fa:hover {
+      cursor: pointer; }
   .footer .footer-bottom {
     width: 400px;
     padding: 10px;
@@ -579,48 +582,76 @@ textarea {
   .contact-form h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
-    margin-bottom: 30px; }
+    margin-bottom: 20px; }
+  .contact-form h1::after {
+    content: '';
+    height: 1px;
+    width: 85px;
+    background: #8d8d8d;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px; }
   .contact-form form {
     font-size: 15px;
     width: 400px; }
     .contact-form form input {
       font-family: 'Roboto', sans-serif;
       margin-top: 15px;
-      padding: 10px;
-      background-color: white;
-      border: 1px solid #613461;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      border: 1px solid #c99eb4;
       display: flex;
       width: 100%;
-      box-sizing: border-box; }
+      box-sizing: border-box;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px; }
     .contact-form form textarea {
       font-family: 'Roboto', sans-serif;
       margin-top: 15px;
-      padding: 10px;
-      background-color: white;
-      border: 1px solid #613461;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      border: 1px solid #c99eb4;
       display: flex;
       width: 100%;
-      box-sizing: border-box; }
+      box-sizing: border-box;
+      border-top-left-radius: 17px;
+      border-top-right-radius: 17px;
+      border-bottom-left-radius: 17px;
+      border-bottom-right-radius: 17px; }
     .contact-form form .button-area {
-      margin: 25px 0;
+      margin: 30px 0;
       display: flex;
       justify-content: center; }
       .contact-form form .button-area button {
         font-family: 'Roboto', sans-serif;
-        width: 150px;
+        width: 140px;
+        height: 42px;
         font-size: 15px;
         padding: 7px 18px;
-        background-color: #613461;
+        background-color: #da86b7;
         border: none;
         color: #ffffff;
-        border-radius: 2px;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
         font-weight: bolder; }
         .contact-form form .button-area button:hover {
           cursor: pointer;
           opacity: .9; }
       .contact-form form .button-area span {
-        color: #613461;
+        color: #da86b7;
         margin-left: 20px;
         font-family: 'Roboto', sans-serif;
         display: none;
         font-size: 14px; }
+
+.container-about {
+  max-width: 1280px;
+  min-height: 800px; }
+  .container-about .myself {
+    max-width: 180px;
+    max-height: 180px; }
