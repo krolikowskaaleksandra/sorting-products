@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sorting products</title>
+    <title>Shopping app</title>
     <link rel="stylesheet" href="styles/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,14 +43,13 @@
 
     <main class="contact-form">
         <h1>Contact us</h1>
-        <form action="#" novalidate>
-            <input type="text" id="name" name="name" placeholder="Enter your name" />
-            <input type="email" id="email" name="email" placeholder="Enter your email" />
-            <input type="text" id="subject" name="subject" placeholder="Subject" />
-            <textarea id="question" rows="4" name="question" placeholder="How can we help?"></textarea>
+        <form action="#">
+            <input type="text" id="name" name="name" placeholder="Enter your name" required />
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+            <input type="text" id="subject" name="subject" placeholder="Subject" required />
+            <textarea id="question" rows="4" name="question" placeholder="How can we help?" required></textarea>
             <div class="button-area">
                 <button type="submit">Send</button>
-                <span>Sending your message...</span>
             </div>
         </form>
     </main>
@@ -69,9 +68,6 @@
         </div>
     </footer>
 
-
-
-    <script src="scriptContactForm.js"></script>
 </body>
 
 </html>

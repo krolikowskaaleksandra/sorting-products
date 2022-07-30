@@ -604,7 +604,7 @@ textarea {
     .contact-form form .button-area {
       margin: 25px 0;
       display: flex;
-      align-items: center; }
+      justify-content: center; }
       .contact-form form .button-area button {
         font-family: 'Roboto', sans-serif;
         width: 150px;
@@ -613,7 +613,8 @@ textarea {
         background-color: #613461;
         border: none;
         color: #ffffff;
-        border-radius: 2px; }
+        border-radius: 2px;
+        font-weight: bolder; }
         .contact-form form .button-area button:hover {
           cursor: pointer;
           opacity: .9; }
